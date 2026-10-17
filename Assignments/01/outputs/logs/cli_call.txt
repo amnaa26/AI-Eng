@@ -1,0 +1,8 @@
+Prompt: The future of artificial intelligence
+Generated: The future of artificial intelligence,
+For ever shall his that your highness him toe;
+And all your hands I will not t
+
+model parameters: 3.19M
+context length: 128
+temperature: 0.8

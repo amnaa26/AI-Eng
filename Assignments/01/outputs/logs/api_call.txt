@@ -1,0 +1,9 @@
+GET  /health   -> 200 {'status': 'ok', 'params': 3192832, 'context_length': 128, 'd_model': 256, 'n_layers': 4, 'n_heads': 4, 'vocab_size': 65}
+POST /generate -> 200
+{
+  "prompt": "ROMEO:",
+  "generated": "ROMEO:\nOne let me have full of many looks it lick.\n\nGRENCE:\nPlantagenet up, I'll warrant you desire to see,\nAnd the world hath",
+  "temperature": 0.8,
+  "seed": null,
+  "context_length": 128
+}

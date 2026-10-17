@@ -1,0 +1,12 @@
+B=2 T=10 d_model=128 n_heads=4 d_head=32
+input            (2, 10, 128)
+q/k/v split      (2, 4, 10, 32)  (B, H, T, d_head)
+scores/weights   (2, 4, 10, 10)  (B, H, T, T)
+per-head output  (2, 4, 10, 32)
+merged           (2, 10, 128)  (B, T, d_model)
+final projection (2, 10, 128)
+
+merge_heads(split_heads(z)) == z            : True
+merge_heads(...) == concat of the 4 heads: True
+attention rows sum to 1 in every head          : True
+future weights are exactly 0 in every head     : True

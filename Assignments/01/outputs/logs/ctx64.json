@@ -1,0 +1,207 @@
+{
+  "tag": "ctx64",
+  "params": 3192832,
+  "wall_s": 339.90795707702637,
+  "device": "cuda",
+  "train_time_s": 298.0689446926117,
+  "peak_mem_mb": 721.591796875,
+  "tokens_per_s": 109934.29736127834,
+  "final_train_loss": 1.232877492904663,
+  "final_val_loss": 1.509273648262024,
+  "model_cfg": {
+    "vocab_size": 65,
+    "context_length": 64,
+    "d_model": 256,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_mult": 4,
+    "dropout": 0.1,
+    "tie_weights": false,
+    "pos_type": "sinusoidal",
+    "causal": true
+  },
+  "train_cfg": {
+    "optimizer": "adamw",
+    "lr": 0.0006,
+    "weight_decay": 0.01,
+    "batch_size": 128,
+    "max_steps": 4000,
+    "eval_interval": 250,
+    "eval_iters": 40,
+    "warmup_steps": 150,
+    "seed": 1337,
+    "val_frac": 0.1
+  },
+  "log": [
+    {
+      "step": 0,
+      "epoch": 0.0,
+      "train_loss": 4.2353515625,
+      "val_loss": 4.232494831085205,
+      "lr": 4e-06,
+      "elapsed_s": 2.2713208198547363,
+      "tokens_per_s": 0.0,
+      "sample": "ROMEO:!YfzxfRkR\nkNwc.wj,ST,O.lT,eHsK\nja!PjJTMBFzA!3e.-SGJJ-33jM:FhgTTauhX:YVXJthXfNuwU"
+    },
+    {
+      "step": 250,
+      "epoch": 2.0401373108041607,
+      "train_loss": 2.0264716148376465,
+      "val_loss": 2.076303005218506,
+      "lr": 0.0005991015972734322,
+      "elapsed_s": 23.52988910675049,
+      "tokens_per_s": 110232.75048680835,
+      "sample": "ROMEO:\nHer fart, I not of to saill hour's hat my\nAnd and ary hiTorer beact\nAnd that th"
+    },
+    {
+      "step": 500,
+      "epoch": 4.080274621608321,
+      "train_loss": 1.708836317062378,
+      "val_loss": 1.847590446472168,
+      "lr": 0.0005890631028759143,
+      "elapsed_s": 44.855010986328125,
+      "tokens_per_s": 109324.35047716592,
+      "sample": "ROMEO:\nI we creach, dear me, if bung it it that this the seess\nthe dearst your fill am"
+    },
+    {
+      "step": 750,
+      "epoch": 6.120411932412482,
+      "train_loss": 1.5610301494598389,
+      "val_loss": 1.7368627786636353,
+      "lr": 0.0005682808257323067,
+      "elapsed_s": 65.78988361358643,
+      "tokens_per_s": 109745.73468272186,
+      "sample": "ROMEO:\nAnd not reford?\n\nCORIOLANUS:\nWhat the did, which as shall all not good the lose"
+    },
+    {
+      "step": 1000,
+      "epoch": 8.160549243216643,
+      "train_loss": 1.4779856204986572,
+      "val_loss": 1.680532455444336,
+      "lr": 0.0005376166418416277,
+      "elapsed_s": 86.60817742347717,
+      "tokens_per_s": 110141.15680176059,
+      "sample": "ROMEO:\nI am well advise is in men will: or thy give\ntears, who hath with sevouly fair."
+    },
+    {
+      "step": 1250,
+      "epoch": 10.200686554020804,
+      "train_loss": 1.42373526096344,
+      "val_loss": 1.6220457553863525,
+      "lr": 0.0004983422465018581,
+      "elapsed_s": 107.5667450428009,
+      "tokens_per_s": 110226.37358865025,
+      "sample": "ROMEO:\nAlas, then, what have so treach, my lord,\nAnd play thou tribe that voices, that"
+    },
+    {
+      "step": 1500,
+      "epoch": 12.240823864824964,
+      "train_loss": 1.3895659446716309,
+      "val_loss": 1.5897217988967896,
+      "lr": 0.00045208641496632517,
+      "elapsed_s": 128.65519762039185,
+      "tokens_per_s": 110173.30294610508,
+      "sample": "ROMEO: what I will consent them take this tone\nBut I should me to my faither, I'll see"
+    },
+    {
+      "step": 1750,
+      "epoch": 14.280961175629125,
+      "train_loss": 1.3636248111724854,
+      "val_loss": 1.563640832901001,
+      "lr": 0.00040076745439355756,
+      "elapsed_s": 149.77332186698914,
+      "tokens_per_s": 110101.51327689707,
+      "sample": "ROMEO:\nLet him of thy deity Gaunt her, and his blood,\nAnd he then and my brother sweet"
+    },
+    {
+      "step": 2000,
+      "epoch": 16.321098486433286,
+      "train_loss": 1.332066535949707,
+      "val_loss": 1.547455906867981,
+      "lr": 0.00034651364842189756,
+      "elapsed_s": 170.87692952156067,
+      "tokens_per_s": 110068.36498150739,
+      "sample": "ROMEO:\nO love my gracious son!\n\nLUCIO:\nThe Corioli, venom the very of the napke?\n\nDUKE"
+    },
+    {
+      "step": 2250,
+      "epoch": 18.36123579723745,
+      "train_loss": 1.308823585510254,
+      "val_loss": 1.5405690670013428,
+      "lr": 0.00029157499366621307,
+      "elapsed_s": 191.94896030426025,
+      "tokens_per_s": 110046.8292153983,
+      "sample": "ROMEO:\nO, and in this number faults, bad good comes on.\n\nKING EDWARD IV:\nWhy are thoug"
+    },
+    {
+      "step": 2500,
+      "epoch": 20.401373108041607,
+      "train_loss": 1.290089726448059,
+      "val_loss": 1.5359742641448975,
+      "lr": 0.00023822988857269352,
+      "elapsed_s": 213.0603165626526,
+      "tokens_per_s": 110015.59495100139,
+      "sample": "ROMEO:\nI am no took.\n\nMENENIUS:\nThen!\n\nLADY ANNE:\nSir Warwick hath apprincely yet like"
+    },
+    {
+      "step": 2750,
+      "epoch": 22.44151041884577,
+      "train_loss": 1.2738240957260132,
+      "val_loss": 1.5217872858047485,
+      "lr": 0.0001886906444019148,
+      "elapsed_s": 234.1716980934143,
+      "tokens_per_s": 109988.20328484382,
+      "sample": "ROMEO:\nThou hast thou love that ever blood may be to-night;\nThe sun things from his to"
+    },
+    {
+      "step": 3000,
+      "epoch": 24.48164772964993,
+      "train_loss": 1.2679352760314941,
+      "val_loss": 1.5195530652999878,
+      "lr": 0.00014501173695868208,
+      "elapsed_s": 255.3046383857727,
+      "tokens_per_s": 109961.74303260642,
+      "sample": "ROMEO:\nIf the fault thus appear it lies.\n\nAll:\nSo many soul, then, my lord; I pray, I "
+    },
+    {
+      "step": 3250,
+      "epoch": 26.52178504045409,
+      "train_loss": 1.2550976276397705,
+      "val_loss": 1.5174952745437622,
+      "lr": 0.00010900460402377973,
+      "elapsed_s": 276.39572834968567,
+      "tokens_per_s": 109952.51636412268,
+      "sample": "ROMEO:\nSirrah, as old hour, and will I keep your royal children graze,\nAnd I live with"
+    },
+    {
+      "step": 3500,
+      "epoch": 28.56192235125825,
+      "train_loss": 1.2484220266342163,
+      "val_loss": 1.5127346515655518,
+      "lr": 8.216252198148499e-05,
+      "elapsed_s": 297.54103350639343,
+      "tokens_per_s": 109926.59419636015,
+      "sample": "ROMEO:\nAnd to fair and thee, my lord, sir.\n\nBRUTUS:\nSweet him, though thou mayst my ha"
+    },
+    {
+      "step": 3750,
+      "epoch": 30.602059662062413,
+      "train_loss": 1.2417014837265015,
+      "val_loss": 1.5060945749282837,
+      "lr": 6.559867713549632e-05,
+      "elapsed_s": 318.5872631072998,
+      "tokens_per_s": 109933.54526736963,
+      "sample": "ROMEO:\nCome, my lord. If you my first noble prison,\nBut stirrike with ages at Lewis fa"
+    },
+    {
+      "step": 4000,
+      "epoch": 32.64219697286657,
+      "train_loss": 1.232877492904663,
+      "val_loss": 1.509273648262024,
+      "lr": 5.9999999999999995e-05,
+      "elapsed_s": 339.63683891296387,
+      "tokens_per_s": 109934.29736127834,
+      "sample": "ROMEO:\nAll his news; so would he be fitter to hell:\nWhat is the letters and his dear s"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "tag": "heads8",
+  "params": 3192832,
+  "wall_s": 400.10334753990173,
+  "device": "cuda",
+  "train_time_s": 351.9405765533447,
+  "peak_mem_mb": 937.701171875,
+  "tokens_per_s": 93106.62703603673,
+  "final_train_loss": 1.190725326538086,
+  "final_val_loss": 1.481322169303894,
+  "model_cfg": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 256,
+    "n_heads": 8,
+    "n_layers": 4,
+    "ffn_mult": 4,
+    "dropout": 0.1,
+    "tie_weights": false,
+    "pos_type": "sinusoidal",
+    "causal": true
+  },
+  "train_cfg": {
+    "optimizer": "adamw",
+    "lr": 0.0006,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "max_steps": 4000,
+    "eval_interval": 250,
+    "eval_iters": 40,
+    "warmup_steps": 150,
+    "seed": 1337,
+    "val_frac": 0.1
+  },
+  "log": [
+    {
+      "step": 0,
+      "epoch": 0.0,
+      "train_loss": 4.2540693283081055,
+      "val_loss": 4.250335693359375,
+      "lr": 4e-06,
+      "elapsed_s": 2.630307674407959,
+      "tokens_per_s": 0.0,
+      "sample": "ROMEO:!YfzxfRkR\nkNwc.wj,ST,O.lT,eRsK\nja!PjJTMBFzA!3e.-SGJJ-33jM:FhlIhduhX:YjXJtpXNNuwc"
+    },
+    {
+      "step": 250,
+      "epoch": 2.0401373108041607,
+      "train_loss": 2.1371655464172363,
+      "val_loss": 2.1639814376831055,
+      "lr": 0.0005991015972734322,
+      "elapsed_s": 27.75172257423401,
+      "tokens_per_s": 92723.9100806975,
+      "sample": "ROMEO:\nLor ath you sou co domee tot to fare hightis wards;\nI the wour catese bese feme"
+    },
+    {
+      "step": 500,
+      "epoch": 4.080274621608321,
+      "train_loss": 1.7751085758209229,
+      "val_loss": 1.9037727117538452,
+      "lr": 0.0005890631028759143,
+      "elapsed_s": 52.6305193901062,
+      "tokens_per_s": 92750.74965500427,
+      "sample": "ROMEO:\nNGO:\nNo: it that I he not sings some, 'Twill you.\n\nVORTLULES:\nAnd the with shal"
+    },
+    {
+      "step": 750,
+      "epoch": 6.120411932412482,
+      "train_loss": 1.5880110263824463,
+      "val_loss": 1.7578887939453125,
+      "lr": 0.0005682808257323067,
+      "elapsed_s": 77.32991814613342,
+      "tokens_per_s": 93004.46042611128,
+      "sample": "ROMEO:\nRashem, and the so the arm the brains.\nQuent, when I know very an\nThou doth wor"
+    },
+    {
+      "step": 1000,
+      "epoch": 8.160549243216643,
+      "train_loss": 1.4827135801315308,
+      "val_loss": 1.6760928630828857,
+      "lr": 0.0005376166418416277,
+      "elapsed_s": 101.93438267707825,
+      "tokens_per_s": 93215.94034993851,
+      "sample": "ROMEO:\nGeou this armedy, and unfort\nAftell in I very bloody!\n\nKING RICHARD III:\nI am t"
+    },
+    {
+      "step": 1250,
+      "epoch": 10.200686554020804,
+      "train_loss": 1.4208431243896484,
+      "val_loss": 1.6263195276260376,
+      "lr": 0.0004983422465018581,
+      "elapsed_s": 126.59153342247009,
+      "tokens_per_s": 93323.95509168414,
+      "sample": "ROMEO:\nHis can death-sons to pleasure four suns,\nWhich appear you keep out rest,--\n\nDU"
+    },
+    {
+      "step": 1500,
+      "epoch": 12.240823864824964,
+      "train_loss": 1.3754035234451294,
+      "val_loss": 1.5847876071929932,
+      "lr": 0.00045208641496632517,
+      "elapsed_s": 151.31804895401,
+      "tokens_per_s": 93332.55449132032,
+      "sample": "ROMEO:\nWhy, then?\n\nNurse:\nBy they leave the gameness of turn'd noble to late!\nThe what"
+    },
+    {
+      "step": 1750,
+      "epoch": 14.280961175629125,
+      "train_loss": 1.331070899963379,
+      "val_loss": 1.547483205795288,
+      "lr": 0.00040076745439355756,
+      "elapsed_s": 176.06683802604675,
+      "tokens_per_s": 93320.50612387079,
+      "sample": "ROMEO:\nSpeak thee or strangel and house and me,\nAnd her many be so fortune of bastard,"
+    },
+    {
+      "step": 2000,
+      "epoch": 16.321098486433286,
+      "train_loss": 1.3063232898712158,
+      "val_loss": 1.5303382873535156,
+      "lr": 0.00034651364842189756,
+      "elapsed_s": 200.82925391197205,
+      "tokens_per_s": 93311.17134860189,
+      "sample": "ROMEO:\nSo, speak for valour that the follow her rip,\nBut his leave to divise until the"
+    },
+    {
+      "step": 2250,
+      "epoch": 18.36123579723745,
+      "train_loss": 1.2775355577468872,
+      "val_loss": 1.5133243799209595,
+      "lr": 0.00029157499366621307,
+      "elapsed_s": 225.6106858253479,
+      "tokens_per_s": 93303.67702235983,
+      "sample": "ROMEO:\nWhere I hither you desire the duke.\n\nSOMERSET:\nWhy, what, sir?\n\nSICINIUS:\nA goo"
+    },
+    {
+      "step": 2500,
+      "epoch": 20.401373108041607,
+      "train_loss": 1.2595078945159912,
+      "val_loss": 1.5009845495224,
+      "lr": 0.00023822988857269352,
+      "elapsed_s": 250.49487781524658,
+      "tokens_per_s": 93265.48933554537,
+      "sample": "ROMEO:\nI unto my lord and gods in my love,\nSining but a chool-quarre man aid the sea\nA"
+    },
+    {
+      "step": 2750,
+      "epoch": 22.44151041884577,
+      "train_loss": 1.234217643737793,
+      "val_loss": 1.4966762065887451,
+      "lr": 0.0001886906444019148,
+      "elapsed_s": 275.3978409767151,
+      "tokens_per_s": 93218.39746453578,
+      "sample": "ROMEO:\nBy God to use all this bones, he in the present\nWith the grace of their backing"
+    },
+    {
+      "step": 3000,
+      "epoch": 24.48164772964993,
+      "train_loss": 1.2258380651474,
+      "val_loss": 1.4886878728866577,
+      "lr": 0.00014501173695868208,
+      "elapsed_s": 300.2983705997467,
+      "tokens_per_s": 93185.84570066036,
+      "sample": "ROMEO:\nDraw you at the earth:\nAn if the stend wears the palacel down to pride it.\n\nDUK"
+    },
+    {
+      "step": 3250,
+      "epoch": 26.52178504045409,
+      "train_loss": 1.2153812646865845,
+      "val_loss": 1.4949384927749634,
+      "lr": 0.00010900460402377973,
+      "elapsed_s": 325.2846167087555,
+      "tokens_per_s": 93141.36271263544,
+      "sample": "ROMEO:\n\nKING RICHARD III:\nNo more: then, not grieve me in the market-blood\nWhere my ti"
+    },
+    {
+      "step": 3500,
+      "epoch": 28.56192235125825,
+      "train_loss": 1.2048280239105225,
+      "val_loss": 1.4813907146453857,
+      "lr": 8.216252198148499e-05,
+      "elapsed_s": 350.1943061351776,
+      "tokens_per_s": 93108.67558505453,
+      "sample": "ROMEO:\nYou loved her satisfaction; he shall be garden,\n'Twas the earth of the king as "
+    },
+    {
+      "step": 3750,
+      "epoch": 30.602059662062413,
+      "train_loss": 1.1946210861206055,
+      "val_loss": 1.4776604175567627,
+      "lr": 6.559867713549632e-05,
+      "elapsed_s": 375.03423619270325,
+      "tokens_per_s": 93102.15080373747,
+      "sample": "ROMEO:\nWhat fast? what is it to safe?\n\nFRIAR LAURENCE:\nYour father's excellence?\n\nProv"
+    },
+    {
+      "step": 4000,
+      "epoch": 32.64219697286657,
+      "train_loss": 1.190725326538086,
+      "val_loss": 1.481322169303894,
+      "lr": 5.9999999999999995e-05,
+      "elapsed_s": 399.8266110420227,
+      "tokens_per_s": 93106.62703603673,
+      "sample": "ROMEO:\nWhy never for the reason?\n\nHASTINGS:\nProvost! are you before you'll say so you?"
+    }
+  ]
+}

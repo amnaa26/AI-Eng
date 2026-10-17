@@ -1,0 +1,52 @@
+[
+  {
+    "T": 32,
+    "rnn_cell_loop_s": 0.015874494999991384,
+    "fused_gru_s": 0.011087478999968425,
+    "attention_s": 0.004128517999959058,
+    "rnn_sequential_steps": 32,
+    "attention_sequential_steps": 1,
+    "rnn_state_mb": 0.25,
+    "attention_scores_mb": 0.25
+  },
+  {
+    "T": 64,
+    "rnn_cell_loop_s": 0.03241078100001005,
+    "fused_gru_s": 0.022398311000017657,
+    "attention_s": 0.013886522999996487,
+    "rnn_sequential_steps": 64,
+    "attention_sequential_steps": 1,
+    "rnn_state_mb": 0.5,
+    "attention_scores_mb": 1.0
+  },
+  {
+    "T": 128,
+    "rnn_cell_loop_s": 0.0656442719999859,
+    "fused_gru_s": 0.04324877900000956,
+    "attention_s": 0.019779707999987295,
+    "rnn_sequential_steps": 128,
+    "attention_sequential_steps": 1,
+    "rnn_state_mb": 1.0,
+    "attention_scores_mb": 4.0
+  },
+  {
+    "T": 256,
+    "rnn_cell_loop_s": 0.12835130100000924,
+    "fused_gru_s": 0.0899768030000132,
+    "attention_s": 0.06855284499999925,
+    "rnn_sequential_steps": 256,
+    "attention_sequential_steps": 1,
+    "rnn_state_mb": 2.0,
+    "attention_scores_mb": 16.0
+  },
+  {
+    "T": 512,
+    "rnn_cell_loop_s": 0.2517345329999898,
+    "fused_gru_s": 0.188152113000001,
+    "attention_s": 0.44163354500000196,
+    "rnn_sequential_steps": 512,
+    "attention_sequential_steps": 1,
+    "rnn_state_mb": 4.0,
+    "attention_scores_mb": 64.0
+  }
+]

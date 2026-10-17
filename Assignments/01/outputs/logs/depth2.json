@@ -1,0 +1,207 @@
+{
+  "tag": "depth2",
+  "params": 1613312,
+  "wall_s": 186.05195426940918,
+  "device": "cuda",
+  "train_time_s": 162.6897394657135,
+  "peak_mem_mb": 439.34375,
+  "tokens_per_s": 201414.05418444218,
+  "final_train_loss": 1.3199849128723145,
+  "final_val_loss": 1.5458656549453735,
+  "model_cfg": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 256,
+    "n_heads": 4,
+    "n_layers": 2,
+    "ffn_mult": 4,
+    "dropout": 0.1,
+    "tie_weights": false,
+    "pos_type": "sinusoidal",
+    "causal": true
+  },
+  "train_cfg": {
+    "optimizer": "adamw",
+    "lr": 0.0006,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "max_steps": 4000,
+    "eval_interval": 250,
+    "eval_iters": 40,
+    "warmup_steps": 150,
+    "seed": 1337,
+    "val_frac": 0.1
+  },
+  "log": [
+    {
+      "step": 0,
+      "epoch": 0.0,
+      "train_loss": 4.1779632568359375,
+      "val_loss": 4.181663513183594,
+      "lr": 4e-06,
+      "elapsed_s": 1.3136250972747803,
+      "tokens_per_s": 0.0,
+      "sample": "ROMEO:yqfzxfMfLbrNdc.wdNZTxeLlL,ebsKvb:!YeYkbubeB$3:X-SvgOP33&MBd?gL3aUhX:YVXWth&Mz'wq"
+    },
+    {
+      "step": 250,
+      "epoch": 2.0401373108041607,
+      "train_loss": 2.1713099479675293,
+      "val_loss": 2.194610357284546,
+      "lr": 0.0005991015972734322,
+      "elapsed_s": 13.03714656829834,
+      "tokens_per_s": 201268.44586047286,
+      "sample": "ROMEO:\nA fory incir, and were id, roll onour, ard thou willy\nI sou aly cou discin weai"
+    },
+    {
+      "step": 500,
+      "epoch": 4.080274621608321,
+      "train_loss": 1.8463518619537354,
+      "val_loss": 1.963767647743225,
+      "lr": 0.0005890631028759143,
+      "elapsed_s": 25.123883962631226,
+      "tokens_per_s": 196616.5016176065,
+      "sample": "ROMEO:\nAnd 'ty my so love deveng.\n\nDUKE OMBENTES:\nA but be stath father gain.\n\n\nDUKE V"
+    },
+    {
+      "step": 750,
+      "epoch": 6.120411932412482,
+      "train_loss": 1.6692683696746826,
+      "val_loss": 1.8270467519760132,
+      "lr": 0.0005682808257323067,
+      "elapsed_s": 37.41234278678894,
+      "tokens_per_s": 193642.46999290955,
+      "sample": "ROMEO:\nThou cannce the poose of your all were ento pear?\n\nGREEMN:\nThou take in my coun"
+    },
+    {
+      "step": 1000,
+      "epoch": 8.160549243216643,
+      "train_loss": 1.5672900676727295,
+      "val_loss": 1.7437292337417603,
+      "lr": 0.0005376166418416277,
+      "elapsed_s": 48.977736949920654,
+      "tokens_per_s": 195258.83373942858,
+      "sample": "ROMEO:\nBut not the comes they childe wife!\nSo the is shall precessitents with a proge."
+    },
+    {
+      "step": 1250,
+      "epoch": 10.200686554020804,
+      "train_loss": 1.5022976398468018,
+      "val_loss": 1.6967716217041016,
+      "lr": 0.0004983422465018581,
+      "elapsed_s": 60.365102767944336,
+      "tokens_per_s": 197087.80637917103,
+      "sample": "ROMEO:\nWho, here in my sovereign unfall highnard my lord,\nBut and a cause tample of wh"
+    },
+    {
+      "step": 1500,
+      "epoch": 12.240823864824964,
+      "train_loss": 1.460676670074463,
+      "val_loss": 1.6463760137557983,
+      "lr": 0.00045208641496632517,
+      "elapsed_s": 71.46921420097351,
+      "tokens_per_s": 198992.22662645916,
+      "sample": "ROMEO:\nSo perdon, yet not the of a could a jlants enter\nThan is to their name hands de"
+    },
+    {
+      "step": 1750,
+      "epoch": 14.280961175629125,
+      "train_loss": 1.4288749694824219,
+      "val_loss": 1.6184934377670288,
+      "lr": 0.00040076745439355756,
+      "elapsed_s": 82.6151933670044,
+      "tokens_per_s": 200265.06645233845,
+      "sample": "ROMEO:\nWell have your his in cannot traitor's part,\nThe wore beggar of Perus thee will"
+    },
+    {
+      "step": 2000,
+      "epoch": 16.321098486433286,
+      "train_loss": 1.4111353158950806,
+      "val_loss": 1.597801923751831,
+      "lr": 0.00034651364842189756,
+      "elapsed_s": 94.00512838363647,
+      "tokens_per_s": 200774.9191860919,
+      "sample": "ROMEO:\nI have speak you mays leave you, he lords.\n\nLADY ANNE:\nHe bel, then entercharge"
+    },
+    {
+      "step": 2250,
+      "epoch": 18.36123579723745,
+      "train_loss": 1.3765145540237427,
+      "val_loss": 1.5867892503738403,
+      "lr": 0.00029157499366621307,
+      "elapsed_s": 105.53809762001038,
+      "tokens_per_s": 200840.32097141136,
+      "sample": "ROMEO:\nSir, my lord lands! I she world of all.\n\nCLAUDIO:\nWhy, have you shall will not,"
+    },
+    {
+      "step": 2500,
+      "epoch": 20.401373108041607,
+      "train_loss": 1.3643321990966797,
+      "val_loss": 1.5863505601882935,
+      "lr": 0.00023822988857269352,
+      "elapsed_s": 117.19647884368896,
+      "tokens_per_s": 200649.8322511416,
+      "sample": "ROMEO:\nMy lord, daughter'd to know use a heart.\n\nMENENIUS:\nThis is from the king eyes "
+    },
+    {
+      "step": 2750,
+      "epoch": 22.44151041884577,
+      "train_loss": 1.3555009365081787,
+      "val_loss": 1.57511305809021,
+      "lr": 0.0001886906444019148,
+      "elapsed_s": 128.8106393814087,
+      "tokens_per_s": 200550.7193808444,
+      "sample": "ROMEO:\nHis daughter.\n\nCAMILLO:\nMy lord.\nNo, thou darest, country woman and them him?\n\n"
+    },
+    {
+      "step": 3000,
+      "epoch": 24.48164772964993,
+      "train_loss": 1.3437683582305908,
+      "val_loss": 1.5615465641021729,
+      "lr": 0.00014501173695868208,
+      "elapsed_s": 140.2817258834839,
+      "tokens_per_s": 200666.22727280718,
+      "sample": "ROMEO:\nSir, sir, night, but a flowers of my course;\nHis father fair walls off his deat"
+    },
+    {
+      "step": 3250,
+      "epoch": 26.52178504045409,
+      "train_loss": 1.3408243656158447,
+      "val_loss": 1.5509629249572754,
+      "lr": 0.00010900460402377973,
+      "elapsed_s": 151.70572519302368,
+      "tokens_per_s": 200874.31683616774,
+      "sample": "ROMEO:\nIf this action with his tear is flowers and the life.\n\nLUCIO:\nSir, God's banish"
+    },
+    {
+      "step": 3500,
+      "epoch": 28.56192235125825,
+      "train_loss": 1.330749750137329,
+      "val_loss": 1.5516712665557861,
+      "lr": 8.216252198148499e-05,
+      "elapsed_s": 163.0845878124237,
+      "tokens_per_s": 201100.4399664981,
+      "sample": "ROMEO:\nAt therefore, nor myself will say'd to her well;\nYet go that he same to my own "
+    },
+    {
+      "step": 3750,
+      "epoch": 30.602059662062413,
+      "train_loss": 1.317362666130066,
+      "val_loss": 1.5455610752105713,
+      "lr": 6.559867713549632e-05,
+      "elapsed_s": 174.50557255744934,
+      "tokens_per_s": 201259.8102213471,
+      "sample": "ROMEO:\nNo more, not so, my lord, my lord, I come not.\n\nCORIOLANUS:\nYou have been bear "
+    },
+    {
+      "step": 4000,
+      "epoch": 32.64219697286657,
+      "train_loss": 1.3199849128723145,
+      "val_loss": 1.5458656549453735,
+      "lr": 5.9999999999999995e-05,
+      "elapsed_s": 185.88938665390015,
+      "tokens_per_s": 201414.05418444218,
+      "sample": "ROMEO:\nThen, came are the must not so; say fear life.\n\nVIRGILIA:\nLike a certains him, "
+    }
+  ]
+}

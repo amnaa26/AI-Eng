@@ -1,0 +1,207 @@
+{
+  "tag": "baseline",
+  "params": 3192832,
+  "wall_s": 348.4954981803894,
+  "device": "cuda",
+  "train_time_s": 305.6044771671295,
+  "peak_mem_mb": 793.701171875,
+  "tokens_per_s": 107223.56002029308,
+  "final_train_loss": 1.2097952365875244,
+  "final_val_loss": 1.489892840385437,
+  "model_cfg": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 256,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_mult": 4,
+    "dropout": 0.1,
+    "tie_weights": false,
+    "pos_type": "sinusoidal",
+    "causal": true
+  },
+  "train_cfg": {
+    "optimizer": "adamw",
+    "lr": 0.0006,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "max_steps": 4000,
+    "eval_interval": 250,
+    "eval_iters": 40,
+    "warmup_steps": 150,
+    "seed": 1337,
+    "val_frac": 0.1
+  },
+  "log": [
+    {
+      "step": 0,
+      "epoch": 0.0,
+      "train_loss": 4.254012584686279,
+      "val_loss": 4.2502875328063965,
+      "lr": 4e-06,
+      "elapsed_s": 2.077860116958618,
+      "tokens_per_s": 0.0,
+      "sample": "ROMEO:!YfzxfRkR\nkNwc.wj,ST,O.lT,eHsK\nja!PjJTMBFzA!3e.-SGJJ-33jM:FhlIhduhX:YjXJtpXNNuwc"
+    },
+    {
+      "step": 250,
+      "epoch": 2.0401373108041607,
+      "train_loss": 2.134958267211914,
+      "val_loss": 2.160972833633423,
+      "lr": 0.0005991015972734322,
+      "elapsed_s": 20.710593700408936,
+      "tokens_per_s": 127318.56946433987,
+      "sample": "ROMEO:\nAnd the we the sise by foree lomp, sto thourd,\nThiM in spre mute his wis coune "
+    },
+    {
+      "step": 500,
+      "epoch": 4.080274621608321,
+      "train_loss": 1.7703533172607422,
+      "val_loss": 1.896549940109253,
+      "lr": 0.0005890631028759143,
+      "elapsed_s": 39.38658380508423,
+      "tokens_per_s": 126072.33619013368,
+      "sample": "ROMEO:\nNow the ring, the did make a love feor and to to beed,\nFir what, by for moth so"
+    },
+    {
+      "step": 750,
+      "epoch": 6.120411932412482,
+      "train_loss": 1.5931909084320068,
+      "val_loss": 1.7707513570785522,
+      "lr": 0.0005682808257323067,
+      "elapsed_s": 58.72745418548584,
+      "tokens_per_s": 124105.65602855255,
+      "sample": "ROMEO:\nAnd stard friends, for I lost, he him.\nNay that of him provose to his the have "
+    },
+    {
+      "step": 1000,
+      "epoch": 8.160549243216643,
+      "train_loss": 1.4912290573120117,
+      "val_loss": 1.6886142492294312,
+      "lr": 0.0005376166418416277,
+      "elapsed_s": 79.13354825973511,
+      "tokens_per_s": 121390.61200747773,
+      "sample": "ROMEO:\nHave me come on you shall chase as curself.\n\nSecond Citizen:\nIt rebound leave t"
+    },
+    {
+      "step": 1250,
+      "epoch": 10.200686554020804,
+      "train_loss": 1.4298731088638306,
+      "val_loss": 1.6411718130111694,
+      "lr": 0.0004983422465018581,
+      "elapsed_s": 100.75963306427002,
+      "tokens_per_s": 118320.69190853118,
+      "sample": "ROMEO:\nYou are were him news that that the armiting to thy\nprovost being thus? down Wa"
+    },
+    {
+      "step": 1500,
+      "epoch": 12.240823864824964,
+      "train_loss": 1.3853411674499512,
+      "val_loss": 1.6021560430526733,
+      "lr": 0.00045208641496632517,
+      "elapsed_s": 124.10022807121277,
+      "tokens_per_s": 114656.53718056508,
+      "sample": "ROMEO:\nGood him, as I speak.\n\nLUCIO:\nAnd I am speak; who say thought bound so well;\nAn"
+    },
+    {
+      "step": 1750,
+      "epoch": 14.280961175629125,
+      "train_loss": 1.3441983461380005,
+      "val_loss": 1.5604355335235596,
+      "lr": 0.00040076745439355756,
+      "elapsed_s": 146.80171942710876,
+      "tokens_per_s": 112580.76536705447,
+      "sample": "ROMEO:\nNorfolk, there are the maidly purpose who enough.\n\nKING RICHARD III:\nAnd what s"
+    },
+    {
+      "step": 2000,
+      "epoch": 16.321098486433286,
+      "train_loss": 1.321178674697876,
+      "val_loss": 1.5455231666564941,
+      "lr": 0.00034651364842189756,
+      "elapsed_s": 168.69925689697266,
+      "tokens_per_s": 111671.39159689877,
+      "sample": "ROMEO:\nSir, but then and hence,\nBut in yonceld to a her bodies threes it.\n\nPAULINA:\nNo"
+    },
+    {
+      "step": 2250,
+      "epoch": 18.36123579723745,
+      "train_loss": 1.291724443435669,
+      "val_loss": 1.528356671333313,
+      "lr": 0.00029157499366621307,
+      "elapsed_s": 190.90506172180176,
+      "tokens_per_s": 110802.67937910475,
+      "sample": "ROMEO:\nNor sweet so; for I am crave's throat,\nWith made in our mainitations of your ha"
+    },
+    {
+      "step": 2500,
+      "epoch": 20.401373108041607,
+      "train_loss": 1.2751379013061523,
+      "val_loss": 1.5101737976074219,
+      "lr": 0.00023822988857269352,
+      "elapsed_s": 213.57896947860718,
+      "tokens_per_s": 109852.81185394681,
+      "sample": "ROMEO:\nAdvent thou canst me thy hatre, and the remers.\n\nSecond Murderer:\nFor a boy! a "
+    },
+    {
+      "step": 2750,
+      "epoch": 22.44151041884577,
+      "train_loss": 1.250303864479065,
+      "val_loss": 1.5072776079177856,
+      "lr": 0.0001886906444019148,
+      "elapsed_s": 236.1234095096588,
+      "tokens_per_s": 109144.58987835313,
+      "sample": "ROMEO:\nMadam, my lord, and well I to meet thee?\nO, why, that this be seen undired reas"
+    },
+    {
+      "step": 3000,
+      "epoch": 24.48164772964993,
+      "train_loss": 1.2423592805862427,
+      "val_loss": 1.497712254524231,
+      "lr": 0.00014501173695868208,
+      "elapsed_s": 258.5363075733185,
+      "tokens_per_s": 108629.06147083179,
+      "sample": "ROMEO:\nI am to conceive your father's guiles,\nAnd so despairs are so point the prince "
+    },
+    {
+      "step": 3250,
+      "epoch": 26.52178504045409,
+      "train_loss": 1.232184886932373,
+      "val_loss": 1.501065969467163,
+      "lr": 0.00010900460402377973,
+      "elapsed_s": 280.854252576828,
+      "tokens_per_s": 108224.59062886455,
+      "sample": "ROMEO:\nIt is all their airs, not say 'Ay, I will give him\nHis well branches, and for t"
+    },
+    {
+      "step": 3500,
+      "epoch": 28.56192235125825,
+      "train_loss": 1.222339391708374,
+      "val_loss": 1.4890937805175781,
+      "lr": 8.216252198148499e-05,
+      "elapsed_s": 303.19097685813904,
+      "tokens_per_s": 107883.78987953515,
+      "sample": "ROMEO:\nWhat is the enemy?\n\nCLAUDIO:\nO mind of this?\n\nLADY ANNE:\nNay, but 'tis served o"
+    },
+    {
+      "step": 3750,
+      "epoch": 30.602059662062413,
+      "train_loss": 1.2120364904403687,
+      "val_loss": 1.4853947162628174,
+      "lr": 6.559867713549632e-05,
+      "elapsed_s": 325.656259059906,
+      "tokens_per_s": 107552.74990034997,
+      "sample": "ROMEO:\nWhat doth consented end him?\n\nSecond Watchman:\nStir Henry, never hear me me so,"
+    },
+    {
+      "step": 4000,
+      "epoch": 32.64219697286657,
+      "train_loss": 1.2097952365875244,
+      "val_loss": 1.489892840385437,
+      "lr": 5.9999999999999995e-05,
+      "elapsed_s": 348.2257981300354,
+      "tokens_per_s": 107223.56002029308,
+      "sample": "ROMEO:\nThat is this our power.\n\nSOMERSET:\nCome in my mean is in such sorrow us here.\n\n"
+    }
+  ]
+}

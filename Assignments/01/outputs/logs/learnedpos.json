@@ -1,0 +1,207 @@
+{
+  "tag": "learnedpos",
+  "params": 3225600,
+  "wall_s": 362.696191072464,
+  "device": "cuda",
+  "train_time_s": 318.61700415611267,
+  "peak_mem_mb": 793.9521484375,
+  "tokens_per_s": 102844.4796497574,
+  "final_train_loss": 1.2273296117782593,
+  "final_val_loss": 1.4988081455230713,
+  "model_cfg": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 256,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_mult": 4,
+    "dropout": 0.1,
+    "tie_weights": false,
+    "pos_type": "learned",
+    "causal": true
+  },
+  "train_cfg": {
+    "optimizer": "adamw",
+    "lr": 0.0006,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "max_steps": 4000,
+    "eval_interval": 250,
+    "eval_iters": 40,
+    "warmup_steps": 150,
+    "seed": 1337,
+    "val_frac": 0.1
+  },
+  "log": [
+    {
+      "step": 0,
+      "epoch": 0.0,
+      "train_loss": 4.233065605163574,
+      "val_loss": 4.228193759918213,
+      "lr": 4e-06,
+      "elapsed_s": 2.372318744659424,
+      "tokens_per_s": 0.0,
+      "sample": "ROMEO:?Yfz?ARkR-r\nJc'wf,ZT,OLlT,xHtv\nb:!PO&kMBbzA$A:XvW&gO-3ISAB?agL3a\nMX:DVXGtpNezuwK"
+    },
+    {
+      "step": 250,
+      "epoch": 2.0401373108041607,
+      "train_loss": 2.33208966255188,
+      "val_loss": 2.3608205318450928,
+      "lr": 0.0005991015972734322,
+      "elapsed_s": 25.085069179534912,
+      "tokens_per_s": 102659.48768223169,
+      "sample": "ROMEO:\nh llou hee wat be earn'foree llar, sttise thire in hin s pe mute hin wourithine"
+    },
+    {
+      "step": 500,
+      "epoch": 4.080274621608321,
+      "train_loss": 1.8844387531280518,
+      "val_loss": 2.0002658367156982,
+      "lr": 0.0005890631028759143,
+      "elapsed_s": 47.685423851013184,
+      "tokens_per_s": 102430.6585905062,
+      "sample": "ROMEO:\nNot the there the din may and bent to the hooft\nPitio to die them: the 'mord so"
+    },
+    {
+      "step": 750,
+      "epoch": 6.120411932412482,
+      "train_loss": 1.657495141029358,
+      "val_loss": 1.8254444599151611,
+      "lr": 0.0005682808257323067,
+      "elapsed_s": 70.16211199760437,
+      "tokens_per_s": 102574.14779588828,
+      "sample": "ROMEO:\nAnd stay good as seech did bas him.\n\nGLOUCESTER:\nHere He you father?\n\nESCOMPEY:"
+    },
+    {
+      "step": 1000,
+      "epoch": 8.160549243216643,
+      "train_loss": 1.5426149368286133,
+      "val_loss": 1.7271137237548828,
+      "lr": 0.0005376166418416277,
+      "elapsed_s": 92.55501294136047,
+      "tokens_per_s": 102737.2087919525,
+      "sample": "ROMEO:\nHave me come on encering to to be manine,\nWith lapfer sing do the bot hall pero"
+    },
+    {
+      "step": 1250,
+      "epoch": 10.200686554020804,
+      "train_loss": 1.4667845964431763,
+      "val_loss": 1.6720664501190186,
+      "lr": 0.0004983422465018581,
+      "elapsed_s": 114.90095782279968,
+      "tokens_per_s": 102890.29559826046,
+      "sample": "ROMEO:\nYou like of Lond Gentle alleward;\nPray I have said hold own being the face,\nWhe"
+    },
+    {
+      "step": 1500,
+      "epoch": 12.240823864824964,
+      "train_loss": 1.410048484802246,
+      "val_loss": 1.619494080543518,
+      "lr": 0.00045208641496632517,
+      "elapsed_s": 137.4571189880371,
+      "tokens_per_s": 102852.8386802386,
+      "sample": "ROMEO:\nI warrieve said the proper of it;\nI am not show loss, the calar have newly.\nIf "
+    },
+    {
+      "step": 1750,
+      "epoch": 14.280961175629125,
+      "train_loss": 1.3818769454956055,
+      "val_loss": 1.6004081964492798,
+      "lr": 0.00040076745439355756,
+      "elapsed_s": 160.18739414215088,
+      "tokens_per_s": 102741.09053507898,
+      "sample": "ROMEO:\nTruly that his are so brother you, and when\nThey wife now, 'twould to do with t"
+    },
+    {
+      "step": 2000,
+      "epoch": 16.321098486433286,
+      "train_loss": 1.347520112991333,
+      "val_loss": 1.573175311088562,
+      "lr": 0.00034651364842189756,
+      "elapsed_s": 182.7084264755249,
+      "tokens_per_s": 102735.59315675336,
+      "sample": "ROMEO:\nWhat, this shall be no little strings.\n\nNurse:\nAnd find the stumble my life, an"
+    },
+    {
+      "step": 2250,
+      "epoch": 18.36123579723745,
+      "train_loss": 1.313173532485962,
+      "val_loss": 1.5531189441680908,
+      "lr": 0.00029157499366621307,
+      "elapsed_s": 205.1931312084198,
+      "tokens_per_s": 102739.46091222927,
+      "sample": "ROMEO:\nCome, my lord, I know your with your honour,\nTo seem her sun takes of me with h"
+    },
+    {
+      "step": 2500,
+      "epoch": 20.401373108041607,
+      "train_loss": 1.3007724285125732,
+      "val_loss": 1.535144329071045,
+      "lr": 0.00023822988857269352,
+      "elapsed_s": 227.66222834587097,
+      "tokens_per_s": 102753.40690306807,
+      "sample": "ROMEO:\nAdver'd he to be!\n\nFirst Senator:\nArt thou draws me speak, but a hild apprehanc"
+    },
+    {
+      "step": 2750,
+      "epoch": 22.44151041884577,
+      "train_loss": 1.2790043354034424,
+      "val_loss": 1.5454819202423096,
+      "lr": 0.0001886906444019148,
+      "elapsed_s": 250.14771962165833,
+      "tokens_per_s": 102761.62894450387,
+      "sample": "ROMEO:\nMadam, my lord, and well I tell her me--\nO, why, that this be secret mile treac"
+    },
+    {
+      "step": 3000,
+      "epoch": 24.48164772964993,
+      "train_loss": 1.2598297595977783,
+      "val_loss": 1.5316317081451416,
+      "lr": 0.00014501173695868208,
+      "elapsed_s": 272.56076431274414,
+      "tokens_per_s": 102801.83201400303,
+      "sample": "ROMEO:\nI am to condemned the father than of it\nIs so deal here that he is kingdom of t"
+    },
+    {
+      "step": 3250,
+      "epoch": 26.52178504045409,
+      "train_loss": 1.2523237466812134,
+      "val_loss": 1.5202338695526123,
+      "lr": 0.00010900460402377973,
+      "elapsed_s": 294.9537045955658,
+      "tokens_per_s": 102836.14239005688,
+      "sample": "ROMEO:\nIt is all their all the people,\nI'll sings fill the scown, and begin but be\nSho"
+    },
+    {
+      "step": 3500,
+      "epoch": 28.56192235125825,
+      "train_loss": 1.240824818611145,
+      "val_loss": 1.5165976285934448,
+      "lr": 8.216252198148499e-05,
+      "elapsed_s": 317.3704562187195,
+      "tokens_per_s": 102858.44353187154,
+      "sample": "ROMEO:\nWhat is the enmity honour I come not her;\nCome for that hath proclaim is so lov"
+    },
+    {
+      "step": 3750,
+      "epoch": 30.602059662062413,
+      "train_loss": 1.2345794439315796,
+      "val_loss": 1.500230073928833,
+      "lr": 6.559867713549632e-05,
+      "elapsed_s": 339.83266615867615,
+      "tokens_per_s": 102866.3566324784,
+      "sample": "ROMEO:\nWhat did to be aged it me may no means;\nFor here is the sea press'd from me Tow"
+    },
+    {
+      "step": 4000,
+      "epoch": 32.64219697286657,
+      "train_loss": 1.2273296117782593,
+      "val_loss": 1.4988081455230713,
+      "lr": 5.9999999999999995e-05,
+      "elapsed_s": 362.41037917137146,
+      "tokens_per_s": 102844.4796497574,
+      "sample": "ROMEO:\nThat I'll tempest our lord.\n\nA CLIFFORD:\nThe gods of sighs! says, the sail!\n\nLE"
+    }
+  ]
+}

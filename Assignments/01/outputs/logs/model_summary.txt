@@ -1,0 +1,27 @@
+MiniGPT  vocab_size=65  context_length=128  d_model=256  n_heads=4  n_layers=4  ffn_dim=1024  dropout=0.1  pos=sinusoidal
+
+module                                detail                                          params
+--------------------------------------------------------------------------------------------
+token embedding                       (65, 256)                                       16,640
+positional encoding                   sinusoidal                                           0
+block 0: LayerNorm 1                  (256)                                              512
+block 0: multi-head attention         4 heads x d_head 64, Q/K/V/out proj            263,168
+block 0: LayerNorm 2                  (256)                                              512
+block 0: feed-forward (GELU)          256 -> 1024 -> 256                             525,568
+block 1: LayerNorm 1                  (256)                                              512
+block 1: multi-head attention         4 heads x d_head 64, Q/K/V/out proj            263,168
+block 1: LayerNorm 2                  (256)                                              512
+block 1: feed-forward (GELU)          256 -> 1024 -> 256                             525,568
+block 2: LayerNorm 1                  (256)                                              512
+block 2: multi-head attention         4 heads x d_head 64, Q/K/V/out proj            263,168
+block 2: LayerNorm 2                  (256)                                              512
+block 2: feed-forward (GELU)          256 -> 1024 -> 256                             525,568
+block 3: LayerNorm 1                  (256)                                              512
+block 3: multi-head attention         4 heads x d_head 64, Q/K/V/out proj            263,168
+block 3: LayerNorm 2                  (256)                                              512
+block 3: feed-forward (GELU)          256 -> 1024 -> 256                             525,568
+final LayerNorm                       (256)                                              512
+LM head                               256 -> 65 (no bias)                             16,640
+--------------------------------------------------------------------------------------------
+TOTAL TRAINABLE PARAMETERS                                                         3,192,832
+(3.193M)

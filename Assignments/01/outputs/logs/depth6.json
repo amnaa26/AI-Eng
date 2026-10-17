@@ -1,0 +1,207 @@
+{
+  "tag": "depth6",
+  "params": 4772352,
+  "wall_s": 539.5467281341553,
+  "device": "cuda",
+  "train_time_s": 475.2082643508911,
+  "peak_mem_mb": 1148.05859375,
+  "tokens_per_s": 68955.02973787571,
+  "final_train_loss": 1.1481921672821045,
+  "final_val_loss": 1.465852975845337,
+  "model_cfg": {
+    "vocab_size": 65,
+    "context_length": 128,
+    "d_model": 256,
+    "n_heads": 4,
+    "n_layers": 6,
+    "ffn_mult": 4,
+    "dropout": 0.1,
+    "tie_weights": false,
+    "pos_type": "sinusoidal",
+    "causal": true
+  },
+  "train_cfg": {
+    "optimizer": "adamw",
+    "lr": 0.0006,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "max_steps": 4000,
+    "eval_interval": 250,
+    "eval_iters": 40,
+    "warmup_steps": 150,
+    "seed": 1337,
+    "val_frac": 0.1
+  },
+  "log": [
+    {
+      "step": 0,
+      "epoch": 0.0,
+      "train_loss": 4.260413646697998,
+      "val_loss": 4.258620738983154,
+      "lr": 4e-06,
+      "elapsed_s": 3.4653828144073486,
+      "tokens_per_s": 0.0,
+      "sample": "ROMEO:?qfC?bDkRbrQwl.wjZZT,OLOL,ebqKmbHqYOYmMobXA$A:CaWGgO?'qjMqc?YLTa\nhXbYVXJFhXMuuwq"
+    },
+    {
+      "step": 250,
+      "epoch": 2.0401373108041607,
+      "train_loss": 2.097721815109253,
+      "val_loss": 2.136174440383911,
+      "lr": 0.0005991015972734322,
+      "elapsed_s": 37.5736825466156,
+      "tokens_per_s": 68110.16321587082,
+      "sample": "ROMEO:\nLow ath you sou co dome: tof thef he hight,\nTo for thou that whast weve confere"
+    },
+    {
+      "step": 500,
+      "epoch": 4.080274621608321,
+      "train_loss": 1.7232643365859985,
+      "val_loss": 1.854771375656128,
+      "lr": 0.0005890631028759143,
+      "elapsed_s": 71.08400344848633,
+      "tokens_per_s": 68454.50031798912,
+      "sample": "ROMEO:\nNo, so givery arre, so the forther we whoner,\nThese wist reash dide upon: and f"
+    },
+    {
+      "step": 750,
+      "epoch": 6.120411932412482,
+      "train_loss": 1.5579776763916016,
+      "val_loss": 1.744734764099121,
+      "lr": 0.0005682808257323067,
+      "elapsed_s": 104.32123303413391,
+      "tokens_per_s": 68787.59314567015,
+      "sample": "ROMEO:\nResse the was of of your many lipe to be member,\nAnd signive to see of the his "
+    },
+    {
+      "step": 1000,
+      "epoch": 8.160549243216643,
+      "train_loss": 1.4613724946975708,
+      "val_loss": 1.6459715366363525,
+      "lr": 0.0005376166418416277,
+      "elapsed_s": 137.8241720199585,
+      "tokens_per_s": 68830.58926794936,
+      "sample": "ROMEO:\nGree this armed by kniught.\n\nQUEEN ELIZABETH:\nFor this blood, my ledwards are m"
+    },
+    {
+      "step": 1250,
+      "epoch": 10.200686554020804,
+      "train_loss": 1.399141550064087,
+      "val_loss": 1.6042139530181885,
+      "lr": 0.0004983422465018581,
+      "elapsed_s": 171.4996416568756,
+      "tokens_per_s": 68760.02435733947,
+      "sample": "ROMEO:\nHis can beat the day to be the foests.\n\nBUCKINGHAM:\nAy, I kneel not rest, besee"
+    },
+    {
+      "step": 1500,
+      "epoch": 12.240823864824964,
+      "train_loss": 1.347981572151184,
+      "val_loss": 1.5606000423431396,
+      "lr": 0.00045208641496632517,
+      "elapsed_s": 204.97709226608276,
+      "tokens_per_s": 68779.4240566547,
+      "sample": "ROMEO:\nWhat? farewell, let him\nwhat hath the church of the nature of their lady\nAfteri"
+    },
+    {
+      "step": 1750,
+      "epoch": 14.280961175629125,
+      "train_loss": 1.3049986362457275,
+      "val_loss": 1.5352953672409058,
+      "lr": 0.00040076745439355756,
+      "elapsed_s": 238.32397198677063,
+      "tokens_per_s": 68842.2317190217,
+      "sample": "ROMEO:\nSpeak thee or such a cause honourable thou post thy son!\n\nLUCIO:\n'Tis we wed th"
+    },
+    {
+      "step": 2000,
+      "epoch": 16.321098486433286,
+      "train_loss": 1.2783424854278564,
+      "val_loss": 1.5101476907730103,
+      "lr": 0.00034651364842189756,
+      "elapsed_s": 271.66814279556274,
+      "tokens_per_s": 68885.93643263639,
+      "sample": "ROMEO:\nMarry, though I am not known to the mother.\n\nAUFIDIUS:\nHere's will make the tim"
+    },
+    {
+      "step": 2250,
+      "epoch": 18.36123579723745,
+      "train_loss": 1.2425587177276611,
+      "val_loss": 1.498416781425476,
+      "lr": 0.00029157499366621307,
+      "elapsed_s": 305.0159583091736,
+      "tokens_per_s": 68922.65299770009,
+      "sample": "ROMEO:\nWhat the names of the semalle day,\nThat do this king is her speak. Not be so,\nL"
+    },
+    {
+      "step": 2500,
+      "epoch": 20.401373108041607,
+      "train_loss": 1.2274291515350342,
+      "val_loss": 1.4862804412841797,
+      "lr": 0.00023822988857269352,
+      "elapsed_s": 338.43623185157776,
+      "tokens_per_s": 68931.47537823541,
+      "sample": "ROMEO:\nI have made a man repeal.\nBut I have cuid of my humour quarrel to rich,\nThat re"
+    },
+    {
+      "step": 2750,
+      "epoch": 22.44151041884577,
+      "train_loss": 1.2095800638198853,
+      "val_loss": 1.4884707927703857,
+      "lr": 0.0001886906444019148,
+      "elapsed_s": 371.8516047000885,
+      "tokens_per_s": 68948.59849483064,
+      "sample": "ROMEO:\nBy God's husband, I'll be rawful till thee world;\nAnd let us a king? I have it "
+    },
+    {
+      "step": 3000,
+      "epoch": 24.48164772964993,
+      "train_loss": 1.1869781017303467,
+      "val_loss": 1.4643700122833252,
+      "lr": 0.00014501173695868208,
+      "elapsed_s": 405.4311065673828,
+      "tokens_per_s": 68935.75301006365,
+      "sample": "ROMEO:\nDraw the king; if we do friend well, the\ngods under the stock of death in the l"
+    },
+    {
+      "step": 3250,
+      "epoch": 26.52178504045409,
+      "train_loss": 1.1750409603118896,
+      "val_loss": 1.4695075750350952,
+      "lr": 0.00010900460402377973,
+      "elapsed_s": 439.1255691051483,
+      "tokens_per_s": 68900.95727820718,
+      "sample": "ROMEO:\nGod save your violent souls, not will grieve\nThat be companion more to be many "
+    },
+    {
+      "step": 3500,
+      "epoch": 28.56192235125825,
+      "train_loss": 1.1672167778015137,
+      "val_loss": 1.4700905084609985,
+      "lr": 8.216252198148499e-05,
+      "elapsed_s": 472.6335575580597,
+      "tokens_per_s": 68893.3256182151,
+      "sample": "ROMEO:\nYou look'd here to be satisfied.\n\nROMEO:\nA man, 'tis a subject of the cause.\n\nC"
+    },
+    {
+      "step": 3750,
+      "epoch": 30.602059662062413,
+      "train_loss": 1.1646579504013062,
+      "val_loss": 1.468629240989685,
+      "lr": 6.559867713549632e-05,
+      "elapsed_s": 505.98411083221436,
+      "tokens_per_s": 68912.27696853076,
+      "sample": "ROMEO:\nWhat is that did right of the court?\n\nCAMILLO:\nNo, no.\n\nMENENIUS:\nI pray your n"
+    },
+    {
+      "step": 4000,
+      "epoch": 32.64219697286657,
+      "train_loss": 1.1481921672821045,
+      "val_loss": 1.465852975845337,
+      "lr": 5.9999999999999995e-05,
+      "elapsed_s": 539.165842294693,
+      "tokens_per_s": 68955.02973787571,
+      "sample": "ROMEO:\nWhy then?\nAh, what's the all devil?\n\nPRINCE EDWARD:\nIn Brittany stones, and set"
+    }
+  ]
+}

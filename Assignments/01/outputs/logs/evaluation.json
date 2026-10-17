@@ -1,0 +1,36 @@
+{
+  "checkpoint": "checkpoints/baseline.pt",
+  "params": 3192832,
+  "context_length": 128,
+  "val_loss": 1.4837680821030066,
+  "val_perplexity": 4.409529886620368,
+  "val_bits_per_char": 2.140624853879336,
+  "causal_check_max_logit_change": 0.0,
+  "generation_strategies": [
+    {
+      "strategy": "greedy (T=0)",
+      "distinct_word_1": 0.2,
+      "distinct_word_2": 0.2553191489361702,
+      "sample": "ROMEO:\nI will not so much a soldier to the common of the\nsecret the sea of the sea to the courtesy.\n\nBRUTUS:\nI will not so.\n\nCORIOLANUS:\nI will not so.\n\nCORIOLANUS:\nI will not so.\n\nCORIOLANUS:\nI will not so.\n\nCORIOLANUS:\nI will not so.\n\nCOR"
+    },
+    {
+      "strategy": "T=0.5",
+      "distinct_word_1": 0.7425742574257426,
+      "distinct_word_2": 0.96,
+      "sample": "ROMEO:\nGood my lord: lords, I'll say thee to thee;\nThe may say the better do what have seen them speak?\n\nBUCKINGHAM:\nNo, my lord, I have stand to the grace of the sun\nAnd son the worst of English will stay the duke\nOf the senators of the ba"
+    },
+    {
+      "strategy": "T=0.8",
+      "distinct_word_1": 0.8494623655913979,
+      "distinct_word_2": 0.9782608695652174,
+      "sample": "ROMEO:\nGood my lord: lord, let me like a three-pasting me.\n\nAUTOLYCUS:\nRomeo, sir; yet I will charge them go to come.\n\nLUCIO:\nWhy, thou art as I the world?\n\nCLARENCE:\nAre son that very brothers like a fault droubt of death:\nThe very and sev"
+    },
+    {
+      "strategy": "T=1.2",
+      "distinct_word_1": 0.8631578947368421,
+      "distinct_word_2": 0.9787234042553191,
+      "sample": "ROMEO:\nGo's not\nTo wills, I have so was a semble\nReady moes amongst me born: what my father boy,\nHe would gave it enjoy'd: but help me, that's gone\nMake me swell thus hums.\nnot afivrs, I will villain! Laurence, at go;\nThen say, thus armit\nT"
+    }
+  ],
+  "api_ok": true
+}

@@ -1,0 +1,25 @@
+{
+  "loss_first_8_positions": 1.8065634965896606,
+  "loss_positions_8_to_32": 1.4758974313735962,
+  "loss_last_half": 1.4636666774749756,
+  "strategies": {
+    "greedy": {
+      "invented_word_rate": 0.008849557522123894,
+      "repeated_4gram_rate": 0.7454545454545455
+    },
+    "T=0.8": {
+      "invented_word_rate": 0.03065109941876477,
+      "repeated_4gram_rate": 0.0
+    },
+    "T=1.2": {
+      "invented_word_rate": 0.10269156398639398,
+      "repeated_4gram_rate": 0.0
+    }
+  },
+  "ood_invented_word_rate": {
+    "def main():": 0.029411764705882353,
+    "The future of artificial intelligence": 0.02702702702702703,
+    "2 + 2 =": 0.03125,
+    "Dear Sir or Madam,": 0.05405405405405406
+  }
+}

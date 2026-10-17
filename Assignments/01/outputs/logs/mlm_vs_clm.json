@@ -1,0 +1,18 @@
+{
+  "uniform_guess_loss": 4.174387269895637,
+  "unigram_entropy_loss": 3.3127951622009277,
+  "steps_A_B": 400,
+  "steps_C_mlm": 1200,
+  "A_causal_next_token": {
+    "teacher_forced_val_loss": 2.1742872476577757,
+    "honest_val_loss": 2.1658622474533815
+  },
+  "B_bidirectional_next_token": {
+    "teacher_forced_val_loss": 0.048525192961096766,
+    "honest_val_loss": 9.76687739863138
+  },
+  "C_bert_mlm": {
+    "masked_loss_both_sides": 2.5844883918762207,
+    "masked_loss_left_context_only": 3.1826014518737793
+  }
+}
