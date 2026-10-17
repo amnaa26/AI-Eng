@@ -1,0 +1,1 @@
+https://medium.com/@k230066/creating-mini-gpt-from-scratch-report-4aacc855a86d?postPublishedType=repub

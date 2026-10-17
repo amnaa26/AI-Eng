@@ -1,0 +1,7 @@
+# Runtime dependencies for the deployed API (install CPU torch separately, see render.yaml)
+fastapi
+uvicorn
+pydantic
+numpy
+pyyaml
+httpx

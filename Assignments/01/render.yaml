@@ -1,0 +1,14 @@
+# Render blueprint: New + > Blueprint > pick this repo. The checkpoint must be committed (checkpoints/baseline.pt, ~3 MB).
+services:
+  - type: web
+    name: minigpt-api
+    runtime: python
+    plan: free
+    buildCommand: pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements-api.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: CHECKPOINT
+        value: checkpoints/baseline.pt
