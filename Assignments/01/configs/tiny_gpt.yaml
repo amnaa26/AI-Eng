@@ -1,20 +1,21 @@
 model:
   context_length: 128
-  d_model: 128
+  d_model: 256
   n_heads: 4
   n_layers: 4
   ffn_mult: 4
   dropout: 0.1
   tie_weights: false
+  pos_type: sinusoidal
 train:
   optimizer: adamw
-  lr: 0.0003
+  lr: 0.0006
   weight_decay: 0.01
   batch_size: 64
-  max_steps: 3000
+  max_steps: 4000
   eval_interval: 250
-  eval_iters: 50
-  warmup_steps: 100
+  eval_iters: 40
+  warmup_steps: 150
   seed: 1337
   val_frac: 0.1
 data:
