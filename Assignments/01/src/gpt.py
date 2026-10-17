@@ -4,7 +4,7 @@ from dataclasses import dataclass, asdict
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from .positional_encoding import SinusoidalPositionalEncoding
+from .positional_encoding import SinusoidalPositionalEncoding, LearnedPositionalEncoding
 from .transformer_block import TransformerBlock
 
 
@@ -18,6 +18,8 @@ class GPTConfig:
     ffn_mult: int = 4
     dropout: float = 0.1
     tie_weights: bool = False
+    pos_type: str = "sinusoidal"   # or "learned"
+    causal: bool = True            # False only for the BERT-vs-GPT comparison experiment
 
     def to_dict(self):
         return asdict(self)
@@ -28,10 +30,11 @@ class MiniGPT(nn.Module):
         super().__init__()
         self.cfg = cfg
         self.tok_emb = nn.Embedding(cfg.vocab_size, cfg.d_model)
-        self.pos = SinusoidalPositionalEncoding(cfg.d_model, cfg.context_length)
+        pos_cls = LearnedPositionalEncoding if cfg.pos_type == "learned" else SinusoidalPositionalEncoding
+        self.pos = pos_cls(cfg.d_model, cfg.context_length)
         self.drop = nn.Dropout(cfg.dropout)
         self.blocks = nn.ModuleList(
-            [TransformerBlock(cfg.d_model, cfg.n_heads, cfg.ffn_mult * cfg.d_model, cfg.dropout)
+            [TransformerBlock(cfg.d_model, cfg.n_heads, cfg.ffn_mult * cfg.d_model, cfg.dropout, cfg.causal)
              for _ in range(cfg.n_layers)]
         )
         self.ln_f = nn.LayerNorm(cfg.d_model)
