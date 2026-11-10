@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rubik's Cube Race</title>
+<style>
+  :root{
+    --bg:#0f1420; --panel:#171e2e; --panel2:#1d2639; --line:#2a3550; --text:#e8ecf5; --muted:#8e9ab5;
+    --accent:#5b8cff; --good:#2fbf71; --bad:#ef5b5b; --warn:#f0b429; --llm:#7a5cff; --dec:#17a673;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  #banner{position:fixed;top:0;left:0;right:0;z-index:1000;height:38px;display:flex;align-items:center;justify-content:flex-end;gap:10px;
+    padding:0 22px;background:#0a0e18;border-bottom:1px solid var(--line);font-weight:600;letter-spacing:.02em}
+  #banner span.k{color:var(--muted);font-weight:500}
+  #banner button{background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:2px 8px;cursor:pointer;font-size:12px}
+  main{padding:54px 18px 30px;max-width:1180px;margin:0 auto}
+  h1{font-size:20px;margin:6px 0 2px;letter-spacing:.02em}
+  .sub{color:var(--muted);margin-bottom:12px}
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+  .controls label{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  select,input[type=number]{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font-size:14px}
+  input[type=number]{width:84px}
+  button.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:14px}
+  button.btn.sec{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+  button.btn.danger{background:var(--bad)}
+  button:disabled{opacity:.45;cursor:not-allowed}
+  .note{font-size:12px;color:var(--muted);margin:8px 2px}
+  .warnbox{border:1px solid var(--warn);background:#2a2412;color:#f6d98a;border-radius:10px;padding:8px 12px;margin:10px 0;font-size:13px;display:none}
+  .status{display:flex;justify-content:space-between;align-items:center;margin:14px 2px 8px;gap:12px;flex-wrap:wrap}
+  .status b{font-size:15px}
+  .scr{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  @media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:620px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;position:relative;min-height:0}
+  .card.winner{border-color:#e6b422;box-shadow:0 0 0 1px #e6b42266}
+  .card.solved{border-color:#2fbf7188}
+  .head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .head .name{font-weight:700;font-size:16px}
+  .pill{font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+  .pill.llm{background:#2a2250;color:#b9a8ff}
+  .pill.dec{background:#0f3a2c;color:#5ee0a8}
+  .row{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+  .cubebox{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+  .cubebox svg.iso{width:100%;max-width:170px;height:auto}
+  .cubebox svg.net{width:100%;max-width:115px;opacity:.9}
+  .stat{width:auto;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:7px;text-align:center;display:flex;flex-direction:row;align-items:center;justify-content:space-around}
+  .stat .lbl{font-size:10px;color:var(--muted);letter-spacing:.08em}
+  .stat .val{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:22px;font-weight:700}
+  .stat .st{font-size:11px;font-weight:700;padding:3px 4px;border-radius:6px;margin-top:4px}
+  .st.thinking{color:var(--muted)} .st.solved{background:#123a27;color:#4be39b}
+  .st.bad{background:#3a1717;color:#ff8c8c}
+  .st.waiting{color:var(--muted)}
+  .current{font-size:12px;color:var(--muted);margin:6px 0 4px;min-height:18px}
+  .current b{color:var(--text);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px}
+  .hist{display:flex;flex-wrap:wrap;gap:4px;max-height:66px;overflow:auto}
+  .chip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+  .chip.cached{border-style:dashed;color:#9fb4ff}
+  .chip.bad{border-color:var(--bad);color:#ff9a9a}
+  .medal{position:static;width:30px;height:30px;margin:0 0 5px 0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#2a2000;background:#d9d9d9}
+  .medal.m1{background:#f5c542}.medal.m2{background:#cfd4dc}.medal.m3{background:#d08c4a}.medal.m4{background:#8a93a6}
+  .benchmark{margin-top:16px}
+  .benchmark-head{display:flex;align-items:center;justify-content:space-between;margin:0 2px 8px}
+  .benchmark-head h2{font-size:16px;margin:0}
+  .benchmark-head .small{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .live-table td,.live-table th{padding:9px 10px}
+  .live-table td:not(:first-child),.live-table th:not(:first-child){text-align:right}
+  /* slide */
+  #slide{position:fixed;inset:38px 0 0 0;background:var(--bg);z-index:900;overflow:auto;display:none;padding:18px}
+  #slide .wrap{max-width:1200px;margin:0 auto}
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:var(--panel)}
+  td.best{color:#5ee0a8;font-weight:700}
+  .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  .bars{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:12px 0}
+  .barcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+  .barcard h3{margin:0 0 8px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .bar{display:flex;align-items:center;gap:8px;margin:5px 0}
+  .bar .n{width:140px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar .t{flex:1;background:var(--panel2);height:16px;border-radius:5px;overflow:hidden}
+  .bar .f{height:100%;background:var(--accent)}
+  .bar .f.dec{background:var(--dec)} .bar .f.llm{background:var(--llm)}
+  .bar .v{width:78px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;text-align:right}
+  .answers{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 14px;margin:12px 0}
+  .answers p{margin:8px 0}
+  .answers .q{color:var(--muted)}
+  .small{font-size:12px;color:var(--muted)}
+  dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:640px}
+  dialog::backdrop{background:#000a}
+  pre{white-space:pre-wrap;font-size:12px}
+</style>
+</head>
+<body>
+<div id="banner">
+  <span class="k">Student:</span><span id="b-name">—</span>
+  <span class="k">Roll No:</span><span id="b-roll">—</span>
+</div>
+
+<main>
+  <h1>RUBIK'S CUBE RACE</h1>
+  <div class="sub">Decision models vs frontier LLMs: speed against solution quality on the same scrambled cube.</div>
+
+  <div class="controls">
+    <label>Model set
+      <select id="profile"></select>
+    </label>
+    <label>Test set
+      <select id="testset">
+        <option value="warmup">Warm-up (3–4 turns)</option>
+        <option value="primary" selected>Primary (4–5 turns)</option>
+        <option value="extension">Extension (15–20 turns)</option>
+        <option value="custom">Custom length</option>
+      </select>
+    </label>
+    <label>Custom len<input type="number" id="customlen" min="1" max="30" value="4"></label>
+    <label>Puzzles<input type="number" id="npuz" min="1" max="50" value="5"></label>
+    <label>Seed<input type="number" id="seed" value="1234"></label>
+    <label>Max moves<input type="number" id="maxmoves" min="1" max="60" value="30"></label>
+    <label>Time limit (s)<input type="number" id="tlimit" min="5" max="1800" value="300"></label>
+    <label>Cost cap ($)<input type="number" id="costcap" min="0" step="0.1" value="1"></label>
+    <button class="btn" id="start">Run benchmark</button>
+    <button class="btn danger" id="stop" disabled>Stop</button>
+    <button class="btn sec" id="next" disabled style="display:none">Next benchmark</button>
+    <button class="btn sec" id="selftest">Self-test models</button>
+    <button class="btn sec" id="showslide" disabled>Benchmark slide</button>
+  </div>
+  <div class="status">
+    <div><b id="runtitle">Ready</b> <span class="scr" id="scrinfo"></span></div>
+    <div class="small" id="runmeta"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <section class="benchmark">
+    <div class="benchmark-head">
+      <h2>Benchmark statistics</h2>
+      <span class="small" id="benchmeta">Run a benchmark to see results</span>
+    </div>
+    <div class="tablewrap"><table class="live-table" id="livetable"></table></div>
+  </section>
+</main>
+
+<div id="slide">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h1 style="margin:0">Statistical benchmark</h1>
+      <div style="display:flex;gap:8px">
+        <button class="btn sec" id="dl-json">Download JSON</button>
+        <button class="btn" id="closeslide">Back to race</button>
+      </div>
+    </div>
+    <div class="small" id="slidemeta" style="margin:4px 0 10px"></div>
+    <div class="tablewrap"><table id="stattable"></table></div>
+    <div class="bars" id="bars"></div>
+    <div class="answers" id="answers"></div>
+    <h3 style="margin:16px 0 6px">Per-puzzle results</h3>
+    <div class="tablewrap"><table id="puztable"></table></div>
+  </div>
+</div>
+
+<dialog id="dlg"><div id="dlgbody"></div><div style="text-align:right;margin-top:10px"><button class="btn" id="dlgclose">OK</button></div></dialog>
+
+<script>
+const COLORS = {U:'#f4f4f4',R:'#d62f2f',F:'#2fa84f',D:'#f2d12a',L:'#f08a24',B:'#2f6fd6'};
+const $ = s => document.querySelector(s);
+let CFG = null, runId = null, pollTimer = null, lastSnap = null, previewPuzzle = null;
+
+/* ---------- cube drawing ---------- */
+function isoSVG(state){
+  const s = 24, ax = .866*s, ay = .5*s;
+  const a = [ax, ay], b = [ax, -ay], v = [0, s];
+  const C = [130, 128];
+  const add = (p,q,k=1)=>[p[0]+q[0]*k, p[1]+q[1]*k];
+  let out = '<svg class="iso" viewBox="0 0 260 230" xmlns="http://www.w3.org/2000/svg">';
+  const poly = (pts,color)=>`<polygon points="${pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')}" fill="${COLORS[color]}" stroke="#10131c" stroke-width="1.6" stroke-linejoin="round"/>`;
+  // U face (indices 0-8)
+  for(let r=0;r<3;r++)for(let c=0;c<3;c++){
+    let p0 = add(add(add(C,a,-3),b,3), a, c); p0 = add(p0,b,-r);
+    const p1=add(p0,a), p2=add(p1,b,-1), p3=add(p0,b,-1);
+    out += poly([p0,p1,p2,p3], state[r*3+c]);
+  }
+  // F face (18-26): left-front
+  for(let r=0;r<3;r++)for(let c=0;c<3;c++){
+    let p0 = add(add(C,a,-3), a, c); p0 = add(p0,v,r);
+    const p1=add(p0,a), p2=add(p1,v), p3=add(p0,v);
+    out += poly([p0,p1,p2,p3], state[18+r*3+c]);
+  }
+  // R face (9-17): right-front
+  for(let r=0;r<3;r++)for(let c=0;c<3;c++){
+    let p0 = add(C,b,c); p0 = add(p0,v,r);
+    const p1=add(p0,b), p2=add(p1,v), p3=add(p0,v);
+    out += poly([p0,p1,p2,p3], state[9+r*3+c]);
+  }
+  return out + '</svg>';
+}
+function netSVG(state){
+  const k=11, off={U:[3,0],L:[0,3],F:[3,3],R:[6,3],B:[9,3],D:[3,6]}, base={U:0,R:9,F:18,D:27,L:36,B:45};
+  let out=`<svg class="net" viewBox="0 0 ${12*k} ${9*k}" xmlns="http://www.w3.org/2000/svg">`;
+  for(const f of 'URFDLB')for(let r=0;r<3;r++)for(let c=0;c<3;c++){
+    const x=(off[f][0]+c)*k,y=(off[f][1]+r)*k;
+    out+=`<rect x="${x}" y="${y}" width="${k}" height="${k}" fill="${COLORS[state[base[f]+r*3+c]]}" stroke="#10131c" stroke-width="1"/>`;
+  }
+  return out+'</svg>';
+}
+const SOLVED = 'U'.repeat(9)+'R'.repeat(9)+'F'.repeat(9)+'D'.repeat(9)+'L'.repeat(9)+'B'.repeat(9);
+
+/* ---------- helpers ---------- */
+function fmtTime(sec){
+  if(sec==null) return '—';
+  const m=Math.floor(sec/60), s=sec-m*60;
+  return `${m}:${s.toFixed(2).padStart(5,'0')}`;
+}
+const fmt=(x,n=2)=>x==null?'—':Number(x).toFixed(n);
+const ms=x=>x==null?'—':(x*1000).toFixed(0)+' ms';
+const isDec = c => /decision/i.test(c);
+function pill(c){return `<span class="pill ${isDec(c)?'dec':'llm'}">${isDec(c)?'Decision model':'LLM'}</span>`}
+function statusInfo(t){
+  switch(t.status){
+    case 'solved': return ['SOLVED ✓','solved'];
+    case 'not_solved': return ['RAN OUT OF MOVES','bad'];
+    case 'out_of_time': return ['OUT OF TIME','bad'];
+    case 'error': return ['ERROR / NO VALID MOVE','bad'];
+    case 'stopped': return ['STOPPED','bad'];
+    case 'thinking': return ['thinking…','thinking'];
+    default: return ['waiting','waiting'];
+  }
+}
+function rankTrials(trials){
+  const arr=Object.values(trials);
+  const done=arr.filter(t=>!['waiting','thinking'].includes(t.status));
+  if(done.length<arr.length) return {};
+  arr.sort((x,y)=>{
+    const sx=x.status==='solved', sy=y.status==='solved';
+    if(sx!==sy) return sx?-1:1;
+    if(sx&&sy&&x.moves.length!==y.moves.length) return x.moves.length-y.moves.length;
+    return x.elapsed_s-y.elapsed_s;
+  });
+  const r={}; arr.forEach((t,i)=>r[t.label]=i+1); return r;
+}
+
+/* ---------- race rendering ---------- */
+function renderCards(models, trials, puzzle){
+  const ranks = trials?rankTrials(trials):{};
+  const g=$('#grid');
+  g.innerHTML = models.map(m=>{
+    const t = trials? trials[m.label] : null;
+    const state = t? t.state : puzzle.state;
+    const [stTxt, stCls] = t? statusInfo(t) : ['ready','waiting'];
+    const solved = t && t.status==='solved';
+    const rank = ranks[m.label];
+    const medal = rank? `<div class="medal m${rank}">${rank}</div>`:'';
+    const nmoves = t? t.moves.length : 0;
+    const last = t && t.log.length? t.log[t.log.length-1] : null;
+    const cur = t && t.status==='thinking'
+      ? `deciding… move <b>${nmoves+1}</b>${last&&last.move?` · last <b>${last.move}</b> (${ms(last.latency_s)})`:''}`
+      : (last? `last move <b>${last.move||'—'}</b>${last.latency_s!=null?` (${ms(last.latency_s)})`:''}` : '');
+    const hist = t? t.log.map(l=>l.move?`<span class="chip${l.cached?' cached':''}"${l.cached?' title="replayed from cache"':''}>${l.move}</span>`:`<span class="chip bad" title="${(l.error||'').replace(/"/g,'')}">✗</span>`).join('') : '';
+    const extra = t && (t.invalid_outputs||t.retries)? `<div class="small">invalid outputs: ${t.invalid_outputs} · retries: ${t.retries}</div>`:'';
+    const gap = solved && t.gap!=null? `<div class="small">optimal ${t.optimal} moves · gap <b>${t.gap>=0?'+':''}${t.gap}</b></div>`:'';
+    return `<div class="card ${solved?'solved':''} ${rank===1&&solved?'winner':''}">
+      ${medal}
+      <div class="head"><span class="name">${m.label}</span>${pill(m.category)}<span class="small" style="margin-left:auto">${m.id}</span></div>
+      <div class="row">
+        <div class="cubebox">${isoSVG(state)}${netSVG(state)}</div>
+        <div class="stat">
+          <div><div class="lbl">TIME</div><div class="val">${fmtTime(t?t.elapsed_s:0)}</div></div>
+          <div><div class="lbl">MOVES</div><div class="val">${nmoves}</div></div>
+          <div class="st ${stCls}">${stTxt}</div>
+        </div>
+      </div>
+      <div class="current">${cur}</div>
+      <div class="hist">${hist}</div>
+      ${gap}${extra}
+    </div>`;
+  }).join('');
+}
+
+function renderSnapshot(s){
+  lastSnap = s;
+  const pi = Math.min(s.current, s.puzzles.length-1);
+  const p = s.puzzles[pi];
+  const trials = s.trials[pi];
+  $('#runtitle').textContent = `Puzzle ${pi+1} of ${s.puzzles.length}`;
+  $('#scrinfo').textContent = `scramble: ${p.scramble.join(' ')}  ·  exact optimum: ${p.optimal==null?'n/a (>6)':p.optimal+' moves'}`;
+  $('#runmeta').textContent = `run ${s.id} · ${s.status}`;
+  renderCards(s.models, trials, p);
+  renderLiveStats(s);
+  const active = s.status==='running' || s.status==='waiting_next';
+  const waitingNext = s.status==='waiting_next';
+  $('#start').disabled = active;
+  $('#stop').disabled = !active;
+  $('#next').style.display = waitingNext ? 'inline-block' : 'none';
+  $('#next').disabled = !waitingNext;
+  $('#showslide').disabled = !s.summary.models.some(m=>m.trials>0);
+  $('#runmeta').textContent = waitingNext
+    ? `run ${s.id} · benchmark complete — click Next benchmark to continue`
+    : `run ${s.id} · ${s.status}` + (s.total_cost_usd?` · spent $${s.total_cost_usd.toFixed(4)}`:'') + (s.cache_hits?` · ${s.cache_hits} cached moves (saved $${(s.saved_usd||0).toFixed(4)})`:'') + (s.stopped_reason?` · ${s.stopped_reason}`:'');
+  if(!active && s.status!=='created'){
+    clearInterval(pollTimer); pollTimer=null;
+    if(s.status==='finished') openSlide();
+  }
+  if($('#slide').style.display==='block') renderSlide(s);
+}
+
+async function poll(){
+  const r = await fetch('/api/runs/'+runId); if(!r.ok) return;
+  renderSnapshot(await r.json());
+}
+
+function renderLiveStats(s){
+  const rows=s.summary.models;
+  const cols=[
+    ['Model',r=>r.label,null],
+    ['Trials',r=>`${r.solved}/${r.trials} solved`,null],
+    ['Avg latency / move',r=>ms(r.avg_move_latency_s),['avg_move_latency_s','min']],
+    ['Avg total time',r=>r.avg_total_time_s==null?'—':fmtTime(r.avg_total_time_s),['avg_total_time_s','min']],
+    ['Avg moves',r=>fmt(r.avg_moves_all),null],
+    ['Success rate',r=>r.success_rate==null?'—':fmt(r.success_rate,0)+'%', ['success_rate','max']],
+    ['Optimality gap',r=>r.avg_gap==null?'—':'+'+fmt(r.avg_gap),['avg_gap','min']],
+    ['Malformed',r=>r.invalid_outputs,['invalid_outputs','min']],
+  ];
+  const bests={};
+  cols.forEach(c=>{if(c[2]) bests[c[2][0]]=best(rows,c[2][0],c[2][1]);});
+  $('#livetable').innerHTML='<thead><tr>'+cols.map(c=>`<th>${c[0]}</th>`).join('')+'</tr></thead><tbody>'+
+    rows.map(r=>'<tr>'+cols.map(c=>{
+      const marked=c[2]&&r[c[2][0]]!=null&&r[c[2][0]]===bests[c[2][0]];
+      return `<td class="${marked?'best':''}">${c[1](r)}</td>`;
+    }).join('')+'</tr>').join('')+'</tbody>';
+  $('#benchmeta').textContent=`run ${s.id} · ${s.config.test_set} · ${s.puzzles.length} puzzles`;
+}
+
+/* ---------- slide ---------- */
+function best(rows,key,dir){ // dir: 'min'|'max'
+  const v=rows.map(r=>r[key]).filter(x=>x!=null); if(!v.length) return null;
+  return dir==='min'?Math.min(...v):Math.max(...v);
+}
+function renderSlide(s){
+  const rows = s.summary.models;
+  const cols = [
+    ['Model',r=>r.label,null],
+    ['Type',r=>isDec(r.category)?'Decision':'LLM',null],
+    ['Avg latency / move',r=>ms(r.avg_move_latency_s),['avg_move_latency_s','min']],
+    ['Median',r=>ms(r.median_move_latency_s),null],
+    ['Avg total time',r=>r.avg_total_time_s==null?'—':fmtTime(r.avg_total_time_s),['avg_total_time_s','min']],
+    ['Avg moves (solved)',r=>fmt(r.avg_moves_solved),['avg_moves_solved','min']],
+    ['Success rate',r=>r.success_rate==null?'—':fmt(r.success_rate,0)+'% ('+r.solved+'/'+r.trials+')',['success_rate','max']],
+    ['Optimal gap (avg)',r=>r.avg_gap==null?'—':(r.avg_gap>=0?'+':'')+fmt(r.avg_gap),['avg_gap','min']],
+    ['Optimal solves',r=>r.gap_known_solves?`${r.optimal_solves}/${r.gap_known_solves}`:'—',null],
+    ['Invalid outputs',r=>r.invalid_outputs,['invalid_outputs','min']],
+    ['Timeouts / errors',r=>`${r.timeouts} / ${r.errors}`,null],
+    ['Cost',r=>r.cost_usd?'$'+r.cost_usd.toFixed(4):'—',null],
+    ['Cached moves',r=>r.cache_hits||0,null],
+  ];
+  const bests = {};
+  cols.forEach(c=>{ if(c[2]) bests[c[2][0]] = best(rows,c[2][0],c[2][1]); });
+  $('#stattable').innerHTML = '<thead><tr>'+cols.map(c=>`<th>${c[0]}</th>`).join('')+'</tr></thead><tbody>'+
+    rows.map(r=>'<tr>'+cols.map(c=>{
+      const isBest = c[2] && r[c[2][0]]!=null && r[c[2][0]]===bests[c[2][0]];
+      return `<td class="${isBest?'best':''}">${c[1](r)}</td>`;
+    }).join('')+'</tr>').join('')+'</tbody>';
+  const cfg=s.config;
+  $('#slidemeta').textContent = `${cfg.profile} · test set: ${cfg.test_set} · ${s.puzzles.length} puzzles · seed ${cfg.seed} · max ${cfg.max_moves} moves · time limit ${cfg.time_limit_s}s · run ${s.id}`;
+
+  const bar=(title,key,fmtf,max)=>{
+    const vals=rows.map(r=>r[key]).filter(x=>x!=null); const m=max||Math.max(...vals,1e-9);
+    return `<div class="barcard"><h3>${title}</h3>`+rows.map(r=>{
+      const v=r[key]; const w=v==null?0:Math.max(2,100*v/m);
+      return `<div class="bar"><div class="n">${r.label}</div><div class="t"><div class="f ${isDec(r.category)?'dec':'llm'}" style="width:${w}%"></div></div><div class="v">${v==null?'—':fmtf(v)}</div></div>`;
+    }).join('')+'</div>';
+  };
+  $('#bars').innerHTML = bar('Avg latency per move','avg_move_latency_s',ms)+bar('Success rate','success_rate',v=>fmt(v,0)+'%',100)+
+    bar('Avg moves when solved','avg_moves_solved',v=>fmt(v))+bar('Avg optimality gap','avg_gap',v=>fmt(v));
+
+  const a=s.summary.answers||{};
+  $('#answers').innerHTML = [
+    ['1. Which model is fastest at making decisions?',a.q1],
+    ['2. Which model achieved the highest solve rate?',a.q2],
+    ['3. Which model found the shortest solutions, and how close to the optimum?',a.q3],
+    ['4. Did the fastest model also achieve the best solution quality?',a.q4],
+  ].map(([q,t])=>`<p><span class="q">${q}</span><br><b>${t||'—'}</b></p>`).join('')+
+    `<p class="small">Q5 (fastest decision model vs frontier LLM vs hybrid) is your written conclusion, backed by the numbers above.</p>`;
+
+  // per puzzle
+  const labels=s.models.map(m=>m.label);
+  $('#puztable').innerHTML='<thead><tr><th>Puzzle</th><th>Scramble</th><th>Optimal</th>'+labels.map(l=>`<th>${l}</th>`).join('')+'</tr></thead><tbody>'+
+    s.puzzles.map((p,i)=>{
+      const per=s.trials[i]; if(!per) return '';
+      return `<tr><td>#${i+1}</td><td>${p.scramble_length}</td><td>${p.optimal==null?'n/a':p.optimal}</td>`+labels.map(l=>{
+        const t=per[l]; if(!t) return '<td>—</td>';
+        const ok=t.status==='solved';
+        const txt=ok?`${t.moves.length} mv · ${fmtTime(t.elapsed_s)}`:`✗ ${t.status.replace('_',' ')}`;
+        return `<td style="color:${ok?'#5ee0a8':'#ff8c8c'}">${txt}</td>`;
+      }).join('')+'</tr>';
+    }).join('')+'</tbody>';
+}
+function openSlide(){ if(!lastSnap) return; $('#slide').style.display='block'; renderSlide(lastSnap); }
+
+/* ---------- banner ---------- */
+function loadBanner(){
+  const n=localStorage.getItem('stu_name')||CFG.student.name||'(set your name)';
+  const r=localStorage.getItem('stu_roll')||CFG.student.roll||'(set roll no)';
+  $('#b-name').textContent=n; $('#b-roll').textContent=r;
+}
+
+/* ---------- actions ---------- */
+function dialog(html){ $('#dlgbody').innerHTML=html; $('#dlg').showModal(); }
+$('#dlgclose').onclick=()=>$('#dlg').close();
+$('#closeslide').onclick=()=>$('#slide').style.display='none';
+$('#showslide').onclick=openSlide;
+$('#dl-json').onclick=()=>{
+  if(!lastSnap) return;
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(lastSnap,null,1)],{type:'application/json'}));
+  a.download=`rubiks-race-${lastSnap.id}.json`; a.click();
+};
+
+function updateProfileUI(){
+  loadPreview();
+}
+async function loadPreview(){
+  const ts=$('#testset').value;
+  const r=await fetch(`/api/puzzle?test_set=${ts}&seed=${$('#seed').value}&custom_len=${$('#customlen').value}`);
+  previewPuzzle=await r.json();
+  const models=CFG.profiles[$('#profile').value].models;
+  renderCards(models,null,previewPuzzle);
+  $('#runtitle').textContent='Ready';
+  $('#scrinfo').textContent=`preview scramble: ${previewPuzzle.scramble.join(' ')} · exact optimum: ${previewPuzzle.optimal==null?'n/a (>6)':previewPuzzle.optimal+' moves'}`;
+  $('#runmeta').textContent='';
+}
+['profile','testset','seed','customlen'].forEach(id=>$('#'+id).addEventListener('change',()=>id==='profile'?updateProfileUI():loadPreview()));
+
+$('#start').onclick=async()=>{
+  if($('#profile').value==='openrouter'){
+    if(!confirm('This will spend OpenRouter credits (paid models). Continue?')) return;
+  }
+  const body={profile:$('#profile').value,test_set:$('#testset').value,num_puzzles:+$('#npuz').value,seed:+$('#seed').value,
+    max_moves:+$('#maxmoves').value,time_limit_s:+$('#tlimit').value,max_cost_usd:+$('#costcap').value,custom_len:+$('#customlen').value};
+  const r=await fetch('/api/runs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!r.ok){ const e=await r.json(); dialog('<b>Could not start</b><pre>'+(e.detail||JSON.stringify(e))+'</pre>'); return; }
+  runId=(await r.json()).id; $('#slide').style.display='none';
+  clearInterval(pollTimer); pollTimer=setInterval(poll,350); poll();
+};
+$('#stop').onclick=async()=>{
+  $('#stop').disabled=true;
+  const r=await fetch(`/api/runs/${runId}/stop`,{method:'POST'});
+  if(r.ok) await poll();
+};
+$('#next').onclick=async()=>{
+  $('#next').disabled=true;
+  const r=await fetch(`/api/runs/${runId}/next`,{method:'POST'});
+  if(r.ok) await poll();
+};
+$('#selftest').onclick=async()=>{
+  const prof=$('#profile').value;
+  if(prof==='openrouter' && !confirm('Self-test makes one real call per model (tiny cost). Continue?')) return;
+  dialog('<b>Running self-test…</b>');
+  const r=await fetch('/api/selftest?profile='+prof,{method:'POST'}); const d=await r.json();
+  let ver=''; if(prof==='openrouter'){ try{ const v=await (await fetch('/api/verify-models')).json();
+    ver='<p class="small">Catalog check: '+Object.entries(v).map(([k,ok])=>`${k} ${ok?'✓':'✗ not listed'}`).join(' · ')+'</p>'; }catch(e){} }
+  dialog('<b>Self-test</b>'+ver+'<table><tr><th>Model</th><th>OK</th><th>Move</th><th>Latency</th><th>Notes</th></tr>'+
+    d.map(x=>`<tr><td>${x.label}</td><td>${x.ok?'✓':'✗'}</td><td>${x.move||'—'}</td><td>${x.latency_s}s</td><td style="white-space:normal;text-align:left">${(x.errors||[]).join('; ').slice(0,160)}</td></tr>`).join('')+'</table>');
+};
+
+(async function init(){
+  CFG=await (await fetch('/api/config')).json();
+  const sel=$('#profile');
+  const order=['ollama','mock','openrouter'];
+  order.filter(k=>CFG.profiles[k]).forEach(k=>sel.add(new Option(k==='openrouter'?'OpenRouter (paid — final run)':k==='ollama'?'Ollama (free, local testing)':'Mock (offline UI check)',k)));
+  loadBanner(); updateProfileUI();
+})();
+</script>
+</body>
+</html>

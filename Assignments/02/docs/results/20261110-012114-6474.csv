@@ -1,0 +1,21 @@
+puzzle,scramble_len,optimal,model,model_id,category,status,moves,gap,total_time_s,avg_move_latency_s,invalid_outputs,failed_turns,retries,cost_usd,cache_hits,move_sequence
+0,5,5,Jev 1.13,typesafe/jev-1.13,System-1 Decision model,not_solved,30,,16.495,0.5403,0,0,0,0.0,30,U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U'
+0,5,5,GPT-6 Luna Decisions,openai/gpt-6-luna-decisions,System-1 Decision model,not_solved,30,,14.989,0.4915,0,0,0,0.0,30,U U' U U U U U U U U R' R' R' U U R' R' R' R' R' R' R' R' R' R' R' R' R' R' R'
+0,5,5,Clef,cloudflare/clef,System-1 Decision model,not_solved,30,,29.044,0.9592,0,0,0,0.0,30,U' D U' U U D D' D' D' D D D D' D' D' D D' D' D' D' D U' D D' D' D D U' U U'
+0,5,5,Claude Opus 5.5,anthropic/claude-opus-5.5,Frontier LLM,not_solved,30,,94.28,3.1351,0,0,0,0.0,30,U' R F R' R F' F F F F F R R R U U' R R F F' R R U U' R D D' R' F F'
+1,4,4,Jev 1.13,typesafe/jev-1.13,System-1 Decision model,not_solved,30,,17.743,0.5835,0,0,0,0.0,30,U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U'
+1,4,4,GPT-6 Luna Decisions,openai/gpt-6-luna-decisions,System-1 Decision model,error,0,,8.776,,0,3,3,0.0,0,
+1,4,4,Clef,cloudflare/clef,System-1 Decision model,not_solved,30,,31.822,1.0526,0,0,0,0.0,30,L' L R' R U U' R' R' R' R R U' U' U U' R' R U' U' R' R U D D U' U' D D D D
+1,4,4,Claude Opus 5.5,anthropic/claude-opus-5.5,Frontier LLM,solved,4,0,37.927,9.4687,0,0,0,0.0,4,U2 D L2 R
+2,4,4,Jev 1.13,typesafe/jev-1.13,System-1 Decision model,not_solved,30,,19.553,0.6425,0,0,0,0.0,30,U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U'
+2,4,4,GPT-6 Luna Decisions,openai/gpt-6-luna-decisions,System-1 Decision model,not_solved,30,,15.637,0.5136,0,0,0,0.0,30,U U' R U U U U U' U R R R' R' U U U U U U U U U U U U U U U U U
+2,4,4,Clef,cloudflare/clef,System-1 Decision model,not_solved,30,,31.702,1.0479,0,0,0,0.0,30,U' U F' F U' U R' R' R R' R' R' R' R2 R R U' U' U R' R R' R' R' U' U' U R U' U'
+2,4,4,Claude Opus 5.5,anthropic/claude-opus-5.5,Frontier LLM,not_solved,30,,263.869,8.7872,0,0,0,0.0,30,L U' U L' D L L' D' L U U' L' D L' L D' L B' B L' D U B B' U' D' L L' D U
+3,4,4,Jev 1.13,typesafe/jev-1.13,System-1 Decision model,not_solved,30,,21.811,0.7198,0,0,0,0.0,30,U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U'
+3,4,4,GPT-6 Luna Decisions,openai/gpt-6-luna-decisions,System-1 Decision model,not_solved,30,,15.05,0.4929,0,0,0,0.0,30,U U' R U U U U U R' R' R' R' R' R' U U U U U U U U R R' R' U U U U U
+3,4,4,Clef,cloudflare/clef,System-1 Decision model,not_solved,30,,38.517,1.2744,0,0,0,0.0,30,U U' D D D' D' U U' U D D D' U' D' D D D' D' U' U U D D' D' D' D U' U D' D
+3,4,4,Claude Opus 5.5,anthropic/claude-opus-5.5,Frontier LLM,not_solved,30,,128.231,4.2634,0,0,0,0.0,30,R F U U' F' R' B' D D' B R U U' R' B' U U' B R R' F B' B F' R U U' R' F F'
+4,5,5,Jev 1.13,typesafe/jev-1.13,System-1 Decision model,not_solved,30,,15.139,0.4966,0,0,0,0.0,30,U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U' U U'
+4,5,5,GPT-6 Luna Decisions,openai/gpt-6-luna-decisions,System-1 Decision model,not_solved,30,,12.79,0.4173,0,0,0,0.0,30,U U' U U U' U U U U U U U R U' U R U U U R R' U U U U U U U U R
+4,5,5,Clef,cloudflare/clef,System-1 Decision model,not_solved,30,,28.297,0.9366,0,0,0,0.0,30,U U' D D' R' R L' L U U' U D D' U' U' D' D D D D' D' D' D D U U' U' U' D D
+4,5,5,Claude Opus 5.5,anthropic/claude-opus-5.5,Frontier LLM,not_solved,30,,129.354,3.9581,0,0,0,0.137616,9,R2 F D D' F' R2 R R F D R R' D' F' U U' F D D' F F' F' F R R' U D D' U' F

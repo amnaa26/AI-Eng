@@ -1,0 +1,27 @@
+{
+  "openrouter": {
+    "description": "Assignment models via OpenRouter (needs OPENROUTER_API_KEY and credits).",
+    "models": [
+      {"label": "Jev 1.13", "id": "typesafe/jev-1.13", "kind": "decisions", "category": "System-1 Decision model"},
+      {"label": "GPT-6 Luna Decisions", "id": "openai/gpt-6-luna-decisions", "kind": "decisions", "category": "System-1 Decision model"},
+      {"label": "Clef", "id": "cloudflare/clef", "kind": "decisions", "category": "System-1 Decision model"},
+      {"label": "Claude Opus 5.5", "id": "anthropic/claude-opus-5.5", "kind": "chat", "category": "Frontier LLM"}
+    ]
+  },
+  "ollama": {
+    "description": "Free local testing through Ollama. Edit the tags to match `ollama list` on your machine. Ollama has no Decisions API, so every model is called via /api/chat with a JSON-constrained output.",
+    "models": [
+      {"label": "Clef Flash (local)", "id": "clef-flash", "kind": "ollama_decisions", "category": "System-1 Decision model"},
+      {"label": "Gemma 3 1B", "id": "gemma3:1b", "kind": "ollama", "category": "Frontier LLM"}
+    ]
+  },
+  "mock": {
+    "description": "Offline fake models with simulated latency. For checking the UI and pipeline only, never for reported results.",
+    "models": [
+      {"label": "Mock Fast", "id": "mock-fast", "kind": "mock", "category": "System-1 Decision model", "latency": 0.05, "strategy": "random"},
+      {"label": "Mock Fast 2", "id": "mock-fast-2", "kind": "mock", "category": "System-1 Decision model", "latency": 0.08, "strategy": "plan", "mistake_rate": 0.4},
+      {"label": "Mock Fast 3", "id": "mock-fast-3", "kind": "mock", "category": "System-1 Decision model", "latency": 0.06, "strategy": "random"},
+      {"label": "Mock Frontier", "id": "mock-frontier", "kind": "mock", "category": "Frontier LLM", "latency": 0.6, "strategy": "plan", "mistake_rate": 0.0}
+    ]
+  }
+}
