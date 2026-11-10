@@ -102,9 +102,4 @@ Settings in `.env`: `CHAT_MAX_TOKENS`, `CHAT_REASONING_JSON` (for example `{"eff
 - `backend/runner.py`: models play each puzzle one after another; reaching the move limit (30) or time limit (300 s) is an unsuccessful attempt; saves `results/<run>.json` and `.csv`; enforces the cost cap.
 - Frontend: live race cards and statistics table, then an auto-opening benchmark slide with per-model statistics, answers to questions 1-4 and per-puzzle results.
 
-## Recording checklist
-
-- Student name and roll number sit in the fixed top banner (set in `.env` or **edit**); keep them in frame throughout.
-- Show the in-progress stage (cards "thinking"), the completion stage (SOLVED / RAN OUT OF MOVES / OUT OF TIME), and end on the benchmark slide.
-- If you record a cache replay instead of live calls, say so: the app marks cached moves, and "Where the numbers come from" explains how the data was produced.
 
