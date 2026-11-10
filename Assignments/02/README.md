@@ -38,7 +38,7 @@ Per puzzle:
 2. **Highest solve rate:** Claude Opus 5.5, 1/5 (20%). Jev, GPT-6 Luna and Clef solved 0/5 each.
 3. **Shortest solutions:** only Opus solved a puzzle (puzzle 2): 4 moves against an exact optimum of 4, an optimality gap of 0. This is a single solved puzzle, so it shows Opus can find an optimal solution, not that it usually does.
 4. **Did the fastest model also have the best solution quality?** No. GPT-6 Luna Decisions was fastest per move but solved nothing; the slowest model produced the only solution.
-5. **Fast decision model, frontier LLM, or hybrid?** *(Draft: rewrite in your own words.)* Here speed bought nothing on its own.
+5. **Fast decision model, frontier LLM, or hybrid?**  Here speed bought nothing on its own.
    The decision models answered in roughly 0.5-1 s per move, but their play had no lookahead: Jev repeated `U U'` for all 30 moves on every puzzle, and Clef and GPT-6 Luna wandered among a handful of moves.
    Opus took 2-15 s per move and cost about 41x as much as the three decision models combined, yet it was the only model to solve a puzzle.
    If wrong moves are cheap and answers are needed in milliseconds, a decision model is the practical choice; where correctness matters and a few seconds per step are acceptable, the frontier LLM is the better choice.
